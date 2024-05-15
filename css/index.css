@@ -1,5 +1,6 @@
 body {
     background-color: #f1faee;
+    font-family: "Kanit", sans-serif;
 }
 
 nav {
@@ -7,5 +8,12 @@ nav {
 }
 
 nav .navBar {
-    color: #A8DADC;
+    color: white;
+}
+
+.btn-custom {
+    background-color: #E63946;
+    /* Deep teal background */
+    border-color: #1D3557;
+    /* Slightly darker teal border */
 }
