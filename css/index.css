@@ -1,6 +1,7 @@
 body {
     background-color: #f1faee;
     font-family: "Kanit", sans-serif;
+
 }
 
 nav {
@@ -16,4 +17,13 @@ nav .navBar {
     /* Deep teal background */
     border-color: #1D3557;
     /* Slightly darker teal border */
+}
+
+h1 {
+    font-size: 5.5vmin;
+    color: #1D3557;
+}
+
+span {
+    color: #457B9D;
 }
