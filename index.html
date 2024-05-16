@@ -1,41 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>COP 4331 LAMP Stack Demo</title>
+	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="js/code.js"></script>
+	<link href="css/styles.css" rel="stylesheet">
 
-    <!-- Google Font -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/index.css">
-
-
-    <title>Document</title>
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 </head>
 
-<body>
-    <header>
-        <nav id="mainNavbar" class="navbar">
-            <a href="index.html" class=" navBar navbar-brand">Navbar</a>
-            <a href="#" class=" btn btn-custom navBar nav-item nav-link btn-lg">Login/Signup</a>
-        </nav>
-    </header>
+<body class="bg-secondary">
 
-    <section class="temp container-fluid">
-        <div class="row align-items-center" style="min-height: 90vh;">
-            <div class="col text-center">
-                <h1 class="">CONTACT<span>/</span>MANAGER</h1>
-            </div>
-        </div>
-    </section>
+	<h1 id="title" class="header bg-dark">COP 4331 LAMP Stack Demo</h1>
+
+	<div id="loginDiv">
+		<span id="inner-title">PLEASE LOG IN</span>
+		<input type="text" id="loginName" placeholder="Username" /><br />
+		<input type="password" id="loginPassword" placeholder="Password" /><br />
+		<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Do It </button>
+		<span id="loginResult"></span>
+		<a href="main.html" class="btn btn-custom btn-lg">Click here</a>
+	</div>
+
 
 </body>
 
