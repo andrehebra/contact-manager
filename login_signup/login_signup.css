@@ -195,16 +195,6 @@ h1 {
     opacity: 50%;
 }
 
-#loginName,
-#signupName,
-#signupEmail,
-#signupPassword {
-    font-size: 25px;
-    padding: 2px 0;
-    text-align: center;
-    border-width: 2px;
-    border-radius: 25px;
-}
 
 #loginPassword {
     font-size: 25px;
@@ -227,11 +217,12 @@ h1 {
 input[type="text"],
 input[type="password"],
 input[type="email"] {
+    font-size: 25px;
+    padding: 2px 0;
+    text-align: center;
     border-width: 2px;
     border-radius: 25px;
-    text-align: center;
     width: 80%;
-    margin-bottom: 2%;
     font-family: "Kanit", sans-serif;
 }
 
