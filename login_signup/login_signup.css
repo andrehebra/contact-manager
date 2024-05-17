@@ -1,4 +1,4 @@
-body {
+html body {
     background-color: #f1faee;
     font-family: "Kanit", sans-serif;
 }
@@ -10,6 +10,14 @@ nav {
 nav .navBar {
     font-family: "Kanit", sans-serif;
     color: white;
+}
+
+nav .Navi {
+    padding-left: 0;
+}
+
+.Navi:hover {
+    color: #FFFFFF;
 }
 
 h1 {
@@ -26,19 +34,16 @@ h1 {
     border-color: #1D3557;
     /* Slightly darker teal border */
     color: white;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.btn-custom:hover {
-    background-color: #c6303c;
+.btn-custom:hover,
+.btn-custom.active {
+    background-color: #ce2e3b;
     /* Darker shade on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     /* Add box shadow on hover */
     color: white;
-}
-
-
-.header {
-    font-family: "Kanit", sans-serif;
 }
 
 #title {
@@ -80,20 +85,43 @@ h1 {
     /* Maximum width */
     height: 30em;
     border: 1px solid #1D3557;
+    position: relative;
+    overflow: hidden;
 }
 
-@media (max-width: 1000px) {
-    .loginDiv {
-        margin-top: 15%;
-    }
+.slider {
+    height: 60px;
+    width: 150px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.);
+    /* Transparent white */
+    position: absolute;
+    top: 50px;
+    /* Adjust as necessary */
+    left: 0;
+    transition: all 0.5s ease-in-out;
 }
 
-@media (max-width: 768px) {
-    .loginDiv {
-        margin-top: 23%;
-    }
+.moveslider {
+    left: 50%;
+    transform: translateX(-50%);
 }
 
+
+.form-section {
+    display: flex;
+    transition: all 0.5s ease-in-out;
+    transform: translateX(0);
+}
+
+.form-section-move {
+    transform: translateX(-100%);
+}
+
+.form-box {
+    min-width: 100%;
+    padding: 20px;
+}
 
 .user_pass {
     padding: 70px 0px 120px 0px;
@@ -105,7 +133,7 @@ h1 {
     border: 1px solid #1D3557;
     border-radius: 4px;
     transition: border-color 0.3s, box-shadow 0.3s;
-    /* Smooth transition */
+    padding: 10px;
 }
 
 .user_pass input:focus {
@@ -118,6 +146,17 @@ h1 {
 }
 
 
+@media (max-width: 1000px) {
+    .loginDiv {
+        margin-top: 15%;
+    }
+}
+
+@media (max-width: 768px) {
+    .loginDiv {
+        margin-top: 23%;
+    }
+}
 
 
 #inner-title {
@@ -156,9 +195,15 @@ h1 {
     opacity: 50%;
 }
 
-#loginName {
+#loginName,
+#signupName,
+#signupEmail,
+#signupPassword {
     font-size: 25px;
     padding: 2px 0;
+    text-align: center;
+    border-width: 2px;
+    border-radius: 25px;
 }
 
 #loginPassword {
@@ -166,7 +211,8 @@ h1 {
     padding: 2px 0;
 }
 
-#loginButton {
+#loginButton,
+#signupButton {
     margin-top: 8px;
 }
 
@@ -179,7 +225,8 @@ h1 {
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
     border-width: 2px;
     border-radius: 25px;
     text-align: center;

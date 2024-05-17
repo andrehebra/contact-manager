@@ -21,7 +21,7 @@
 
     <header>
         <nav id="mainNavbar" class="navbar">
-            <a href="../main.html" class=" navBar navbar-brand">Navbar</a>
+            <a href="../main.html" class=" Navi navBar navbar-brand">Navbar</a>
             <a href="login_signup.html" class=" btn btn-custom navBar nav-item nav-link btn-lg">Login/Signup</a>
         </nav>
     </header>
@@ -31,24 +31,57 @@
         <div class="login-box text-center">
             <!-- Your login form or content goes here -->
             <div class="btn-group">
-                <button class="btn btn-custom">Login</button>
-                <button class="btn btn-custom">Signup</button>
+                <button class="btn btn-custom login-btn">Login</button>
+                <button class="btn btn-custom signup-btn">Signup</button>
             </div>
-            <div class="user_pass">
-                <input type="text" id="loginName" placeholder="Username" /><br />
-                <input type="password" id="loginPassword" placeholder="Password" /><br />
-                <button type="button" id="loginButton" class="btn btn-custom" onclick="doLogin();"> Do It </button>
+
+            <div class="slider"></div>
+
+            <div class="form-section">
+                <div class="form-box user_pass">
+                    <input type="text" id="loginName" placeholder="Username" /><br />
+                    <input type="password" id="loginPassword" placeholder="Password" /><br />
+                    <button type="button" id="loginButton" class="btn btn-custom" onclick="doLogin();"> Login </button>
+                </div>
+
+                <div class="form-box user_pass">
+                    <input type="text" id="signupName" placeholder="First Name" /><br />
+                    <input type="text" id="signupName" placeholder="Last Name" /><br />
+                    <input type="email" id="signupEmail" placeholder="Email" /><br />
+                    <input type="password" id="signupPassword" placeholder="Password" /><br />
+                    <button type="button" id="signupButton" class="btn btn-custom" onclick="doSignup();">Signup</button>
+                </div>
             </div>
             <span id="loginResult"></span>
         </div>
     </div>
 
+    <script>
+        // JavaScript code to handle the slider and form section transitions
+        let signup = document.querySelector(".signup-btn");
+        let login = document.querySelector(".login-btn");
+        let slider = document.querySelector(".slider");
+        let formSection = document.querySelector(".form-section");
 
+        signup.addEventListener("click", () => {
+            slider.classList.add("moveslider");
+            formSection.classList.add("form-section-move");
+            signup.classList.add("active");
+            login.classList.remove("active");
+        });
 
+        login.addEventListener("click", () => {
+            slider.classList.remove("moveslider");
+            formSection.classList.remove("form-section-move");
+            login.classList.add("active");
+            signup.classList.remove("active");
+        });
+    </script>
 
     <!-- Include Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
 
 </body>
