@@ -20,9 +20,13 @@ nav .Navi {
     color: #FFFFFF;
 }
 
+header nav .logSign {
+    border-color: #1D3557;
+}
+
 h1 {
     color: #457b9D;
-}
+}border-color: #1D3557;
 
 .btn {
     font-family: "Kanit", sans-serif;
