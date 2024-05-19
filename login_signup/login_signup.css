@@ -1,0 +1,280 @@
+html body {
+    background-color: #f1faee;
+    font-family: "Kanit", sans-serif;
+}
+
+nav {
+    background-color: #457B9D;
+}
+
+nav .navBar {
+    font-family: "Kanit", sans-serif;
+    color: white;
+}
+
+nav .Navi {
+    padding-left: 0;
+}
+
+.Navi:hover {
+    color: #FFFFFF;
+}
+
+header nav .logSign {
+    border-color: #1D3557;
+}
+
+h1 {
+    color: #457b9D;
+}border-color: #1D3557;
+
+.btn {
+    font-family: "Kanit", sans-serif;
+}
+
+.btn-custom {
+    background-color: #E63946;
+    /* Deep teal background */
+    border-color: #1D3557;
+    /* Slightly darker teal border */
+    color: white;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-custom:hover,
+.btn-custom.active {
+    background-color: #ce2e3b;
+    /* Darker shade on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add box shadow on hover */
+    color: white;
+}
+
+#title {
+    font-family: "Kanit", sans-serif;
+    display: flex;
+    font-size: 40px;
+    width: 100%;
+    margin: 2% 0%;
+    text-align: center;
+    justify-content: center;
+    color: #457b9D;
+    padding: 10px 0px;
+}
+
+
+.loginDiv {
+    font-family: "Kanit", sans-serif;
+    height: 40vh;
+    /* 40% of viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+
+}
+
+.login-box {
+    background-color: #A8DADC;
+    /* Background color for visibility */
+    padding: 20px 0;
+    /* Padding for inner content */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    width: 100%;
+    /* Full width inside its column */
+    max-width: 400px;
+    /* Maximum width */
+    height: 30em;
+    border: 1px solid #1D3557;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider {
+    height: 60px;
+    width: 150px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.);
+    /* Transparent white */
+    position: absolute;
+    top: 50px;
+    /* Adjust as necessary */
+    left: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.moveslider {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.form-section {
+    display: flex;
+    transition: all 0.5s ease-in-out;
+    transform: translateX(0);
+}
+
+.form-section-move {
+    transform: translateX(-100%);
+}
+
+.form-box {
+    min-width: 100%;
+    padding: 20px;
+}
+
+.user_pass {
+    padding: 70px 0px 120px 0px;
+}
+
+.user_pass input {
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #1D3557;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    padding: 10px;
+}
+
+.user_pass input:focus {
+    border-color: #66afe9;
+    /* Change border color on focus */
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+    /* Add glow effect */
+    outline: none;
+    /* Remove default outline */
+}
+
+
+@media (max-width: 1000px) {
+    .loginDiv {
+        margin-top: 15%;
+    }
+}
+
+@media (max-width: 768px) {
+    .loginDiv {
+        margin-top: 23%;
+    }
+}
+
+
+#inner-title {
+    text-align: center;
+    height: 100%;
+}
+
+
+#loggedInDiv {
+    font-size: 30px;
+    width: 70%;
+    margin-left: 15%;
+    padding: 25px;
+    background-color: #b2b2b2;
+}
+
+#accessUIDiv {
+    font-size: 30px;
+    width: 70%;
+    margin-left: 15%;
+    padding: 25px;
+    background-color: #b2b2b2;
+}
+
+.buttons {
+    font-size: 30px;
+    border-radius: 25px;
+    width: 50%;
+    margin-left: 25%;
+    font-family: "Kanit", sans-serif;
+}
+
+.buttons:hover {
+    background-color: #00d5124f;
+    color: #FFFFFF;
+    opacity: 50%;
+}
+
+
+#loginPassword {
+    font-size: 25px;
+    padding: 2px 0;
+}
+
+#loginButton,
+#signupButton {
+    margin-top: 8px;
+}
+
+#searchText {
+    font-size: 30px;
+}
+
+#colorText {
+    font-size: 30px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    font-size: 25px;
+    padding: 2px 0;
+    text-align: center;
+    border-width: 2px;
+    border-radius: 25px;
+    width: 80%;
+    font-family: "Kanit", sans-serif;
+}
+
+
+
+#loginResult {
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-family: "Kanit", sans-serif;
+    color: #95060a;
+}
+
+#userName {
+    display: inline-block;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+}
+
+#logoutButton {
+    width: 20%;
+    margin-left: 40%;
+}
+
+select {
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 2%;
+    font-size: 0.75em;
+    font-family: "Kanit", sans-serif;
+}
+
+#colorSearchResult {
+    display: none;
+}
+
+#colorAddResult {
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    font-family: "Kanit", sans-serif;
+    color: #95060a;
+}
