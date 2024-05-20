@@ -1,15 +1,18 @@
+@import url("../css/index.css");
+
 html body {
     background-color: #f1faee;
     font-family: "Kanit", sans-serif;
 }
 
-nav {
+/*nav {
     background-color: #457B9D;
 }
 
 nav .navBar {
     font-family: "Kanit", sans-serif;
     color: white;
+    font-size: 3vh;
 }
 
 nav .Navi {
@@ -22,11 +25,15 @@ nav .Navi {
 
 header nav .logSign {
     border-color: #1D3557;
-}
+}*/
 
 h1 {
     color: #457b9D;
-}border-color: #1D3557;
+}
+
+#box_b {
+    font-size: 1.5vh;
+}
 
 .btn {
     font-family: "Kanit", sans-serif;
@@ -93,6 +100,41 @@ h1 {
     overflow: hidden;
 }
 
+@media (max-width: 1000px) {
+    .loginDiv {
+        margin-top: 17%;
+    }
+}
+
+@media(max-height: 700px) {
+    .loginDiv {
+        margin-top: 17%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .loginDiv {
+        margin-top: 26%;
+    }
+
+    .login-box {
+        height: 30em;
+        width: 90%;
+    }
+}
+
+@media (max-width: 512px) {
+    .loginDiv {
+        margin-top: 33%;
+    }
+
+    .login-box {
+        height: 30em;
+        width: 80%;
+    }
+}
+
 .slider {
     height: 60px;
     width: 150px;
@@ -150,19 +192,6 @@ h1 {
 }
 
 
-@media (max-width: 1000px) {
-    .loginDiv {
-        margin-top: 15%;
-    }
-}
-
-@media (max-width: 768px) {
-    .loginDiv {
-        margin-top: 23%;
-    }
-}
-
-
 #inner-title {
     text-align: center;
     height: 100%;
@@ -201,13 +230,13 @@ h1 {
 
 
 #loginPassword {
-    font-size: 25px;
     padding: 2px 0;
 }
 
 #loginButton,
 #signupButton {
     margin-top: 8px;
+    font-size: 1.5vh;
 }
 
 #searchText {
@@ -221,7 +250,7 @@ h1 {
 input[type="text"],
 input[type="password"],
 input[type="email"] {
-    font-size: 25px;
+    font-size: 2.2vh;
     padding: 2px 0;
     text-align: center;
     border-width: 2px;
