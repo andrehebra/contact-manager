@@ -1,4 +1,5 @@
-const urlBase = '104.236.199.4';
+const urlBase = 'http://cityfolk.world/LAMPAPI';
+//const urlBase = window.location.origin + '/LAMPAPI';
 const extension = 'php';
 
 let userId = 0;
@@ -32,7 +33,7 @@ function doLogin() {
 				userId = jsonObject.id;
 
 				if (userId < 1) {
-					document.getElemen	tById("loginResult").innerHTML = "User/Password combination incorrect";
+					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
 				}
 
