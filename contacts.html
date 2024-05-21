@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>CONTACT PAGE</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS and Javascript files -->
+    <title>Contacts</title>
     <link rel="stylesheet" href="css/contacts.css">
-    <script src="js/code.js" defer></script>
 </head>
-
 <body>
-    <p id="welcomeMessage">Welcome, [Firstname] [Lastname]</p>
-    <button type="button" id="logoutButton" class="sidebuttons font" onclick="doLogout();">Logout</button>
-    <a href="contacts.html">Contacts</a>
-    <a href="members.html">About Us</a>
+    <nav id="mainNavbar" class="navbar">
+        <a href="main.html" class="Navi navBar navbar-brand">Navbar</a>
+        <a href="login_signup/login_signup.html" class="btn btn-custom navBar nav-item nav-link btn-lg">Login/Signup</a>
+    </nav>
 
-    <div class="addContacts">
-        <form id="addMe" action="" method="post">
-            <input type="text" id="contactTextFirst" placeholder="First Name" required>
-            <input type="text" id="contactTextLast" placeholder="Last Name" required>
-            <input type="text" id="contactTextNumber" placeholder="XXX-XXX-XXXX" required pattern="^[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4}$">
-            <input type="text" id="contactTextEmail" placeholder="name@email.com" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required>
-            <button type="button" id="addContactButton" class="buttons font" onclick="addContact();"> Add Contact
-            </button>
-        </form>
-    </div>
+    <main>
+        <div id="title">Contact Management</div>
+        <div class="container" id="contactForm">
+            <input type="text" id="firstName" placeholder="First Name">
+            <input type="text" id="lastName" placeholder="Last Name">
+            <input type="text" id="phone" placeholder="Phone">
+            <input type="email" id="email" placeholder="Email">
+            <button class="buttons" id="addContactButton">Add Contact</button>
+        </div>
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Contacts will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+
+    </main>
 </body>
-
 </html>
