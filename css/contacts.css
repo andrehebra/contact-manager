@@ -1,3 +1,5 @@
+@import url("index.css");
+
 /* background color of the body */
 body {
     font-family: 'Ubuntu', sans-serif;
@@ -8,23 +10,23 @@ body {
 }
 
 /* Navbar */
-#mainNavbar {
+/*#mainNavbar {
     background-color: #457B9D;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-}
+}*/
 
 /* Navbar title */
-#mainNavbar .navbar-brand {
+/*#mainNavbar .navbar-brand {
     color: white;
     font-size: 1.5em;
     text-decoration: none;
     padding: 10px;
 }
 
-/* Navbar btn */
+/* Navbar btn 
 #mainNavbar .navBar.nav-item.nav-link.btn-lg {
     background-color: #95060a;
     color: white;
@@ -34,10 +36,10 @@ body {
     border-radius: 5px;
 }
 
-/* Button hover color */
+/* Button hover color 
 #mainNavbar .navBar.nav-item.nav-link.btn-lg:hover {
     background-color: #7e0508;
-}
+}*/
 
 /* Title */
 #title {
