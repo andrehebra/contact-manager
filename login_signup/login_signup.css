@@ -19,20 +19,20 @@ nav .Navi {
     padding-left: 0;
 }
 
-.Navi:hover {
-    color: #FFFFFF;
-}
-
 header nav .logSign {
     border-color: #1D3557;
 }*/
+
+.Navi:hover {
+    color: #FFFFFF;
+}
 
 h1 {
     color: #457b9D;
 }
 
 #box_b {
-    font-size: 1.5vh;
+    font-size: 2.0vh;
 }
 
 .btn {
@@ -236,7 +236,7 @@ h1 {
 #loginButton,
 #signupButton {
     margin-top: 8px;
-    font-size: 1.5vh;
+    font-size: 2.0vh;
 }
 
 #searchText {
@@ -250,7 +250,7 @@ h1 {
 input[type="text"],
 input[type="password"],
 input[type="email"] {
-    font-size: 2.2vh;
+    font-size: 3.0vh;
     padding: 2px 0;
     text-align: center;
     border-width: 2px;
