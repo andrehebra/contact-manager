@@ -9,6 +9,78 @@ body {
     color: #333;
 }
 
+.addContactContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: #A8DADC;
+}
+
+.formElement {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+label {
+    width: 17%;
+}
+
+.btn {
+    font-family: "Kanit", sans-serif;
+}
+
+.btn-custom {
+    background-color: #E63946;
+    /* Deep teal background */
+    border-color: #1D3557;
+    /* Slightly darker teal border */
+    color: white;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-custom:hover,
+.btn-custom.active {
+    background-color: #ce2e3b;
+    /* Darker shade on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add box shadow on hover */
+    color: white;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    font-size: 2vh;
+    padding: 2px 0;
+    text-align: center;
+    border-width: 2px;
+    border-radius: 25px;
+    width: 80%;
+    font-family: "Kanit", sans-serif;
+}
+
+input {
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #1D3557;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    padding: 10px;
+}
+
+input:focus {
+    border-color: #66afe9;
+    /* Change border color on focus */
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+    /* Add glow effect */
+    outline: none;
+    /* Remove default outline */
+}
+
 /* Navbar */
 /*#mainNavbar {
     background-color: #457B9D;
@@ -58,7 +130,6 @@ main {
 
 /* background-color: of the form */
 .container {
-    background-color: #b2b2b2;
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px;

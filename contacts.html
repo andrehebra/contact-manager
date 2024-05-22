@@ -32,11 +32,27 @@
     <main>
         <div id="title">Contact Management</div>
         <div class="container" id="contactForm">
-            <input type="text" id="firstName" placeholder="First Name">
-            <input type="text" id="lastName" placeholder="Last Name">
-            <input type="text" id="phone" placeholder="Phone">
-            <input type="email" id="email" placeholder="Email">
-            <button class="buttons" id="addContactButton">Add Contact</button>
+            <form action="">
+                <div class="formElement">
+                    <label for="firstName">First Name: </label>
+                    <input type="text" name="firstName" id="firstName" placeholder="First Name">
+                </div>
+                <div class="formElement">
+                    <label for="lastName">Last Name: </label>
+                    <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+                </div>
+                <div class="formElement">
+                    <label for="phone">Phone Number: </label>
+                    <input type="text" name="phone" id="phone" placeholder="Phone">
+                </div>
+                <div class="formElement">
+                    <label for="email">Email Address: </label>
+                    <input type="email" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="addContactContainer">
+                    <button class="btn btn-custom login-btn" id="addContactButton">Add Contact</button>
+                </div>
+            </form>
         </div>
 
         <!-- Table of contacts -->
