@@ -142,7 +142,7 @@ main {
     padding: 10px 20px;
     background-color: #95060a;
     color: white;
-    margin: 10px;
+    margin: 10px, auto;
     font-family: 'Ubuntu', sans-serif;
     cursor: pointer;
 }
@@ -152,6 +152,12 @@ main {
     background-color: #7e0508;
     color: #FFFFFF;
     opacity: 50%;
+}
+
+/* Button container to center the button */
+.button-container {
+    text-align: center;
+    margin-top: 10px;
 }
 
 /* Form */
