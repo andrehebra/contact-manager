@@ -2,7 +2,7 @@
 
 /* background color of the body */
 body {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: "Kanit", sans-serif;
     margin: 0;
     padding: 0;
     background-color: white;
@@ -22,7 +22,7 @@ body {
 .formElement {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 label {
@@ -51,25 +51,13 @@ label {
     color: white;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"] {
-    font-size: 2vh;
-    padding: 2px 0;
-    text-align: center;
-    border-width: 2px;
-    border-radius: 25px;
-    width: 80%;
-    font-family: "Kanit", sans-serif;
-}
+
 
 input {
-    width: 100%;
-    margin: 10px 0;
+    font-family: "Kanit", sans-serif;
     border: 1px solid #1D3557;
     border-radius: 4px;
     transition: border-color 0.3s, box-shadow 0.3s;
-    padding: 10px;
 }
 
 input:focus {
@@ -169,8 +157,8 @@ input[type="email"] {
     width: 80%;
     margin: 10px auto;
     display: block;
-    padding: 10px;
-    font-family: 'Ubuntu', sans-serif;
+    padding: 2px 0;
+    font-family: "Kanit", sans-serif;
 }
 
 /* Table */
