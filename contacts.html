@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Contacts</title>
+
+    <!--CSS and JS-->
     <link rel="stylesheet" href="css/contacts.css">
+    <script src="js/code.js" defer></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 </head>
+
 <body>
+    <!-- Navbar -->
     <nav id="mainNavbar" class="navbar">
         <a href="main.html" class="Navi navBar navbar-brand">Navbar</a>
-        <a href="login_signup/login_signup.html" class="btn btn-custom navBar nav-item nav-link btn-lg">Login/Signup</a>
+        <a href="login_signup/login_signup.html"
+            class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Login/Signup</a>
     </nav>
 
+    <!-- contact feilds -->
     <main>
         <div id="title">Contact Management</div>
         <div class="container" id="contactForm">
@@ -19,8 +36,12 @@
             <input type="text" id="lastName" placeholder="Last Name">
             <input type="text" id="phone" placeholder="Phone">
             <input type="email" id="email" placeholder="Email">
-            <button class="buttons" id="addContactButton">Add Contact</button>
+            <div class="button-container">
+                <button type="submit" class="buttons">Add Contact</button>
+            </div>
         </div>
+
+        <!-- Table of contacts -->
         <div class="container">
             <table>
                 <thead>
@@ -32,7 +53,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Contacts will be dynamically inserted here -->
+                    <!-- Contacts will be stored here-->
                 </tbody>
             </table>
         </div>
@@ -40,4 +61,5 @@
 
     </main>
 </body>
+
 </html>
