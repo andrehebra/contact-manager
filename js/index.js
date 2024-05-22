@@ -6,6 +6,100 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 
+
+function validateUsername() {
+    const username = document.getElementById('signupUser').value;
+    const usernameMessage = document.getElementById('usernameMessage');
+    let message = '';
+
+    if (username.length < 3 || username.length > 18) {
+        message = 'Username must be between 3 and 18 characters long.';
+    } else if (!/^[a-zA-Z0-9_-]+$/.test(username)) {
+        message = 'Username can only include letters, numbers, underscores, and hyphens.';
+    }
+
+    usernameMessage.textContent = message;
+}
+
+function validatePassword() {
+    const password = document.getElementById('signupPassword').value;
+    const passwordMessage = document.getElementById('passwordMessage');
+    let message = '';
+
+    if (password.length < 8 || password.length > 32) {
+        message = 'Password must be between 8 and 32 characters long.';
+    } else if (!/[0-9]/.test(password)) {
+        message = 'Password must contain at least one number.';
+    } else if (!/[!@#$%^&*]/.test(password)) {
+        message = 'Password must contain at least one special character.';
+    }
+
+    passwordMessage.textContent = message;
+}
+
+function doSignup() {
+    firstName = document.getElementById('signupFirstName').value;
+    lastName = document.getElementById('signupLastName').value;
+    let username = document.getElementById('signupUser').value;
+    let password = document.getElementById('signupPassword').value;
+    let signupResult = document.getElementById('signupResult');
+
+    validateUsername();
+    validatePassword();
+
+    let usernameMessage = document.getElementById('usernameMessage').textContent;
+    let passwordMessage = document.getElementById('passwordMessage').textContent;
+    let errorMessage = '';
+
+    if (!firstName.trim()) {
+        errorMessage += 'First name cannot be blank. ';
+    }
+
+    if (!lastName.trim()) {
+        errorMessage += 'Last name cannot be blank. ';
+    }
+
+    if (usernameMessage || passwordMessage || errorMessage) {
+        return false;
+    }
+
+    // Proceed with the signup process if validation passes
+
+    var hash = md5(password);
+
+    let tmp = { FirstName: firstName, LastName: lastName, Login: username, Password: hash };
+    let jsonPayload = JSON.stringify(tmp);
+
+    let url = urlBase + '/Register.' + extension;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+    //xhr.send(jsonPayload);
+    try {
+        xhr.onreadystatechange = function () {
+            if (this.readyState != 4) {
+                return;
+            }
+
+            if (this.readyState == 4 && this.status == 200) {
+                let jsonObject = JSON.parse(xhr.responseText);
+
+                if (jsonObject.error) {
+                    signupResult.textContent = jsonObject.error;
+                } else {
+                    signupResult.textContent = "Signup successful!";
+                    window.location.href = '../contacts.html';
+                }
+            }
+        };
+        xhr.send(jsonPayload);
+    } catch (err) {
+        signupResult.textContent = err.message;
+    }
+}
+
+
 function doLogin() {
     userId = 0;
     firstName = "";
@@ -13,12 +107,12 @@ function doLogin() {
 
     let login = document.getElementById("loginName").value;
     let password = document.getElementById("loginPassword").value;
-    //	var hash = md5( password );
+    var hash = md5(password);
 
     document.getElementById("loginResult").innerHTML = "";
 
-    let tmp = { login: login, password: password };
-    //	var tmp = {login:login,password:hash};
+    //let tmp = { login: login, password: password };
+    let tmp = { login: login, password: hash };
     let jsonPayload = JSON.stringify(tmp);
 
     let url = urlBase + '/Login.' + extension;
@@ -91,7 +185,7 @@ function doLogout() {
     firstName = "";
     lastName = "";
     document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-    window.location.href = "login_signup/login_signup.html";
+    window.location.href = "main.html";
 }
 
 function addColor() {
@@ -155,5 +249,4 @@ function searchColor() {
     catch (err) {
         document.getElementById("colorSearchResult").innerHTML = err.message;
     }
-
-}/var/www/html
+}

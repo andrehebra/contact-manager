@@ -169,8 +169,12 @@ h1 {
     padding: 20px;
 }
 
-.user_pass {
+.log {
     padding: 70px 0px 120px 0px;
+}
+
+.sign {
+    padding: 10px 0px 120px 0px;
 }
 
 .user_pass input {
