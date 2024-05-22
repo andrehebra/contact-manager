@@ -17,20 +17,33 @@
 	} 
 	else
 	{
-		// Prepare SQL statement to insert user data into the Users table
-		$stmt = $conn->prepare("INSERT INTO Users (DateCreated, DateLastLoggedIn, FirstName, LastName, Login, Password) VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?, ?, ?, ?)");
-		$stmt->bind_param("ssss", $firstName, $lastName, $login, $password);
+		// Check if the username already exists
+        $stmt = $conn->prepare("SELECT ID FROM Users WHERE Login=?");
+        $stmt->bind_param("s", $login);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if ($result->num_rows > 0) {
+            // Username already exists
+            $stmt->close();
+            $conn->close();
+            returnWithError("Username already taken.");
+		} else{
+			// Prepare SQL statement to insert user data into the Users table
+			$stmt = $conn->prepare("INSERT INTO Users (DateCreated, DateLastLoggedIn, FirstName, LastName, Login, Password) VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?, ?, ?, ?)");
+			$stmt->bind_param("ssss", $firstName, $lastName, $login, $password);
 		
-		// Execute the statement
-		if ($stmt->execute()) {
-			// If insertion successful, close the statement and connection
-			$stmt->close();
-			$conn->close();
-			// Return success message
-			returnWithError("user created");
-		} else {
-			// If insertion fails, return error
-			returnWithError("Failed to register user.");
+			// Execute the statement
+			if ($stmt->execute()) {
+				// If insertion successful, close the statement and connection
+				$stmt->close();
+				$conn->close();
+				// Return success message
+				returnWithInfo("user created");
+			} else {
+				// If insertion fails, return error
+				returnWithError("Failed to register user.");
+			}
 		}
 	}
 
@@ -53,5 +66,12 @@
 		$retValue = '{"error":"' . $err . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
+
+	// Function to return success message
+    function returnWithInfo( $info )
+    {
+        $retValue = '{"info":"' . $info . '"}';
+        sendResultInfoAsJson( $retValue );
+    }
 	
 ?>

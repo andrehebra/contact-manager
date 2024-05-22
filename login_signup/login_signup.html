@@ -39,18 +39,21 @@
             <div class="slider"></div>
 
             <div class="form-section">
-                <div class="form-box user_pass">
+                <div class="form-box user_pass log">
                     <input type="text" id="loginName" placeholder="Username" /><br />
                     <input type="password" id="loginPassword" placeholder="Password" /><br />
                     <button type="button" id="loginButton" class="btn btn-custom" onclick="doLogin();"> Login </button>
                     <span id="loginResult"></span>
                 </div>
 
-                <div class="form-box user_pass">
+                <div class="form-box user_pass sign">
+                    <span id="usernameMessage" class="validation-message"></span><br />
+                    <span id="passwordMessage" class="validation-message"></span><br />
                     <input type="text" id="signupFirstName" placeholder="First Name" /><br />
                     <input type="text" id="signupLastName" placeholder="Last Name" /><br />
-                    <input type="text" id="signupUser" placeholder="Username" /><br />
-                    <input type="password" id="signupPassword" placeholder="Password" /><br />
+                    <input type="text" id="signupUser" placeholder="Username" onkeyup="validateUsername();" /><br />
+                    <input type="password" id="signupPassword" placeholder="Password"
+                        onkeyup="validatePassword();" /><br />
                     <button type="button" id="signupButton" class="btn btn-custom" onclick="doSignup();">Signup</button>
                     <span id="signupResult"></span>
                 </div>
