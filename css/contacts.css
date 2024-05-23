@@ -20,8 +20,11 @@ body {
     font-family: "Kanit", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: white;
     color: #333;
+}
+
+* {
+    background-color: #f1faee;
 }
 
 .addContactContainer {
@@ -121,15 +124,23 @@ input:focus {
 #title {
     font-size: 40px;
     width: 100%;
-    margin: 2% 5%;
+    margin: 0% 0%;
     text-align: center;
     color: #333;
 }
 
 /* Form */
+
+form {
+    background-color: #A8DADC;
+}
+
+form div {
+    background-color: #A8DADC;
+}
 main {
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #f1faee;
 }
 
 /* background-color: of the form */
@@ -137,6 +148,7 @@ main {
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px;
+    
 }
 
 /* Button */
