@@ -1,4 +1,19 @@
-@import url("index.css");
+nav {
+    background-color: #457B9D;
+}
+
+nav .navBar {
+    color: white;
+    font-size: 2.3vh;
+}
+
+#mainNavbar {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+
 
 /* background color of the body */
 body {
