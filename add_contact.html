@@ -26,8 +26,6 @@
         <a href="main.html" class="Navi navBar navbar-brand">LOGO</a>
         <a href="login_signup/login_signup.html"
             class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Contacts</a>
-        <a href="./add_contact.html"
-            class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Add New Contact</a>
         <a href="login_signup/login_signup.html"
             class="logSign btn btn-custom navBar nav-item nav-link btn-lg">About Us </a>
         <a href="login_signup/login_signup.html"
@@ -36,34 +34,33 @@
 
     <!-- contact feilds -->
     <main>
-        <div id="title">Welcome, [INSERT NAME HERE]!</div>
+        <div id="title">Add Contact</div>
+        
         <div class="container" id="contactForm">
             <form action="">
-                <div class="searchContainer">
-                    <input type="text" name="firstName" id="firstName" placeholder="Enter Name, Email, or Phone Number">
+                <div class="formElement">
+                    <label for="firstName">First Name: </label>
+                    <input type="text" name="firstName" id="firstName" placeholder="First Name">
+                </div>
+                <div class="formElement">
+                    <label for="lastName">Last Name: </label>
+                    <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+                </div>
+                <div class="formElement">
+                    <label for="phone">Phone Number: </label>
+                    <input type="text" name="phone" id="phone" placeholder="Phone">
+                </div>
+                <div class="formElement">
+                    <label for="email">Email Address: </label>
+                    <input type="email" name="email" id="email" placeholder="Email">
                 </div>
                 <div class="addContactContainer">
-                    <button class="btn btn-custom login-btn" id="addContactButton">Search</button>
+                    <button class="btn btn-custom login-btn" id="addContactButton">Add Contact</button>
                 </div>
             </form>
         </div>
 
-        <!-- Table of contacts -->
-        <div class="container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Contacts will be stored here-->
-                </tbody>
-            </table>
-        </div>
+        
 
 
     </main>
