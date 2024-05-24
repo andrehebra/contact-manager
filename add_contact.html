@@ -69,7 +69,8 @@
                         <label for="phone">Phone Number: </label>
                     </div>
                     <div class="formElement col-8">
-                        <input type="text" name="phone" id="addPhone" placeholder="XXX-XXX-XXXX">
+                        <input type="text" name="phone" id="addPhone" placeholder="XXX-XXX-XXXX"
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
                     </div>
                 </div>
 
@@ -78,7 +79,8 @@
                         <label for="email">Email Address: </label>
                     </div>
                     <div class="formElement col-8">
-                        <input type="email" name="email" id="addEmail" placeholder="name@email.com">
+                        <input type="email" name="email" id="addEmail" placeholder="name@email.com"
+                            pattern="^([0-9]{9})|([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$" required>
                     </div>
                 </div>
                 <div class="addContactContainer py-1">

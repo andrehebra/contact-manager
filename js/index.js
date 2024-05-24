@@ -233,6 +233,24 @@ function addContact() {
     let phone = document.getElementById("addPhone").value;
     let email = document.getElementById("addEmail").value;
 
+    let phoneRegex = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+    let emailRegex = /^([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})$/;
+
+    if (!firstName.trim()) {
+        errorMessage += 'First name cannot be blank. ';
+    }
+    if (!lastName.trim()) {
+        errorMessage += 'Last name cannot be blank. ';
+    }
+    if (!phoneRegex.test(phone)) {
+        result.innerHTML = "Phone Number must be in the format ###-###-####.";
+        return;
+    }
+    if (!emailRegex.test(email)) {
+        result.innerHTML = "Email must be in the correct format.";
+        return;
+    }
+
     let tmp = {
         firstName: firstName,
         lastName: lastName,
