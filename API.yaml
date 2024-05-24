@@ -1,8 +1,8 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
-  description: This is the API documentation for the COP 4331 Demo Contacts App
+  description: This is the API documentation for the CityFolk Contacts App
   version: 1.0.0
-  title: The Groovy Contacts App
+  title: CityFolk Contacts App
   # put the contact info for your development or API team
   contact:
     email: Richard.Leinecker@ucf.edu
@@ -15,20 +15,20 @@ paths:
   /Login.php:
     post:
       tags:
-      - Users
+        - Users
       summary: Logs in to the Contacts app
       operationId: dlLogin
       description: Logs in to Contacts app
       consumes:
-      - applicatoin/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: loginItem
-        description: Login
-        schema:
-          $ref: '#/definitions/Login'
+        - in: body
+          name: loginItem
+          description: Login
+          schema:
+            $ref: "#/definitions/Login"
       responses:
         200:
           description: OK
@@ -39,20 +39,20 @@ paths:
   /Register.php:
     post:
       tags:
-      - Users
+        - Users
       summary: Registers a new user
       operationId: registerUser
       description: Registers a new user in the contacts app
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: registerItem
-        description: User registration details
-        schema:
-          $ref: '#/definitions/Register'
+        - in: body
+          name: registerItem
+          description: User registration details
+          schema:
+            $ref: "#/definitions/Register"
       responses:
         200:
           description: OK
@@ -60,15 +60,64 @@ paths:
           description: URL Not Found
         500:
           description: Server Error
+  /AddContacts.php:
+    post:
+      tags:
+        - Contacts
+      summary: Adds a new contact
+      operationId: addContact
+      description: Adds a new contact for the logged-in user
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: contactItem
+          description: Contact details
+          required: true
+          schema:
+            $ref: "#/definitions/Contact"
+      responses:
+        200:
+          description: Contact added successfully
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: ""
+        400:
+          description: Contact already exists
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Contact already exists"
+        404:
+          description: URL Not Found
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "URL Not Found"
+        500:
+          description: Server Error
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Server Error"
 
-          
-  
 definitions:
   Login:
     type: object
     required:
-    - login
-    - password
+      - login
+      - password
     properties:
       login:
         type: string
@@ -79,10 +128,10 @@ definitions:
   Register:
     type: object
     required:
-    - Login
-    - Password
-    - FirstName
-    - LastName
+      - Login
+      - Password
+      - FirstName
+      - LastName
     properties:
       Login:
         type: string
@@ -90,15 +139,38 @@ definitions:
       Password:
         type: string
         example: "password1!"
-      FirstName: 
+      FirstName:
         type: string
         example: "Hashim"
-      LastName: 
+      LastName:
         type: string
         example: "Alkh"
-  
+  Contact:
+    type: object
+    required:
+      - firstName
+      - lastName
+      - phone
+      - email
+      - userId
+    properties:
+      firstName:
+        type: string
+        example: "Jane"
+      lastName:
+        type: string
+        example: "Smith"
+      phone:
+        type: string
+        example: "555-123-4567"
+      email:
+        type: string
+        example: "jane.smith@example.com"
+      userId:
+        type: integer
+        example: 1
 
 host: cityfolk.world
 basePath: /LAMPAPI
 schemes:
-- http
+  - http
