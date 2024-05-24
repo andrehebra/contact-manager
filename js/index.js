@@ -134,6 +134,8 @@ function doLogin() {
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
 
+                console.log("User ID after login:", userId);
+
                 saveCookie();
 
                 window.location.href = "../contacts.html";
@@ -152,12 +154,16 @@ function saveCookie() {
     let date = new Date();
     date.setTime(date.getTime() + (minutes * 60 * 1000));
     document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+    let data = document.cookie;
+    console.log("Cookie data:", data);
 }
 
 function readCookie() {
     userId = -1;
     let data = document.cookie;
-    let splits = data.split(",");
+    console.log("Cookie data:", data); // Debugging statement
+    let splits = data.split(";");
+
     for (var i = 0; i < splits.length; i++) {
         let thisOne = splits[i].trim();
         let tokens = thisOne.split("=");
@@ -171,9 +177,11 @@ function readCookie() {
             userId = parseInt(tokens[1].trim());
         }
     }
-
+    /*console.log("First Name from cookie:", firstName);
+    console.log("Last Name from cookie:", lastName);
+    console.log("User ID from cookie:", userId);*/
     if (userId < 0) {
-        window.location.href = "index.html";
+        window.location.href = "main.html";
     }
     else {
         //		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
