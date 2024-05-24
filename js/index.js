@@ -214,6 +214,49 @@ function addColor() {
 
 }
 
+
+function addContact() {
+    let firstName = document.getElementById("addFirstName").value;
+    let lastName = document.getElementById("addLastName").value;
+    let phone = document.getElementById("addPhone").value;
+    let email = document.getElementById("addEmail").value;
+
+    let tmp = {
+        firstName: firstName,
+        lastName: lastName,
+        phone: phone,
+        email: email,
+        userId: userId
+    };
+
+    let jsonPayload = JSON.stringify(tmp);
+    let url = urlBase + '/AddContacts.' + extension;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+
+    try {
+        xhr.onreadystatechange = function () {
+            if (this.readyState != 4) {
+                return;
+            }
+
+            if (this.readyState == 4 && this.status == 200) {
+                //console.log("Contact has been added");
+                addContactResult.textContent = "Contact Added Successfully!";
+                document.getElementById("C_add").reset();
+            }
+        };
+        xhr.send(jsonPayload);
+    } catch (err) {
+        document.getElementById("addContactButton").innerHTML = err.message;
+    }
+
+}
+
+
+
 function searchColor() {
     let srch = document.getElementById("searchText").value;
     document.getElementById("colorSearchResult").innerHTML = "";
