@@ -9,7 +9,14 @@
 
     <!--CSS and JS-->
     <link rel="stylesheet" href="css/contacts.css">
-    <script src="js/code.js" defer></script>
+    <script type="text/javascript" src="../js/md5.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            readCookie();
+        }, false);
+    </script>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -26,12 +33,10 @@
         <a href="main.html" class="Navi navBar navbar-brand">LOGO</a>
         <a href="login_signup/login_signup.html"
             class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Contacts</a>
-        <a href="./add_contact.html"
-            class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Add New Contact</a>
-        <a href="login_signup/login_signup.html"
-            class="logSign btn btn-custom navBar nav-item nav-link btn-lg">About Us </a>
-        <a href="login_signup/login_signup.html"
-            class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Logout</a>
+        <a href="./add_contact.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Add New Contact</a>
+        <a href="about_us.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">About Us
+        </a>
+        <a href="#" class="logSign btn btn-custom navBar nav-item nav-link btn-lg" onclick="doLogout();">Logout</a>
     </nav>
 
     <!-- contact feilds -->

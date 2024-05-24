@@ -68,6 +68,10 @@ label {
     font-family: "Kanit", sans-serif;
 }
 
+#addContactResult {
+    background-color: #A8DADC;
+}
+
 .btn-custom {
     background-color: #E63946;
     /* Deep teal background */
@@ -137,7 +141,7 @@ input:focus {
 
 /* Title */
 #title {
-    
+
     font-size: 40px;
     width: 100%;
     margin: 0% 0%;
@@ -209,6 +213,7 @@ input[type="email"] {
     padding: 2px 0;
     font-family: "Kanit", sans-serif;
     font-size: 2.3vh;
+    background-color: white;
 }
 
 @media (max-width: 550px) {
@@ -218,33 +223,35 @@ input[type="email"] {
     input[type="email"] {
         font-size: 2.0vh;
     }
+
     nav .navBar {
         font-size: 1.7vh;
     }
 }
-    /* Table */
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-    }
 
-    /* Table border */
-    table,
-    th,
-    td {
-        border: 1px solid #ddd;
-    }
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
 
-    /* Table cell padding */
-    th,
-    td {
-        padding: 10px;
-        text-align: left;
-    }
+/* Table border */
+table,
+th,
+td {
+    border: 1px solid #ddd;
+}
 
-    /* Table cell colors*/
-    th {
-        background-color: #457B9D;
-        color: white;
-    }
+/* Table cell padding */
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Table cell colors*/
+th {
+    background-color: #457B9D;
+    color: white;
+}

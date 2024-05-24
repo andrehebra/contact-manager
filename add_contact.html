@@ -9,7 +9,14 @@
 
     <!--CSS and JS-->
     <link rel="stylesheet" href="css/add_contacts.css">
-    <script src="js/code.js" defer></script>
+    <script type="text/javascript" src="../js/md5.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            readCookie();
+        }, false);
+    </script>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -26,30 +33,26 @@
         <div class="container-fluid">
             <a href="main.html" class="Navi navBar navbar-brand">LOGO</a>
             <div class="d-flex">
-                <a href="login_signup/login_signup.html"
-                    class="Contact btn btn-custom navBar nav-item nav-link btn-lg">Contacts</a>
-                <a href="login_signup/login_signup.html"
-                    class="logSign btn btn-custom navBar nav-item nav-link btn-lg">About Us
-                </a>
+                <a href="contacts.html" class="Contact btn btn-custom navBar nav-item nav-link btn-lg">Contacts</a>
+                <a href="about_us.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">About Us</a>
             </div>
-            <a href="login_signup/login_signup.html"
-                class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Logout</a>
+            <a href="#" class="logSign btn btn-custom navBar nav-item nav-link btn-lg" onclick="doLogout();">Logout</a>
         </div>
     </nav>
 
     <!-- contact feilds -->
     <main>
-        
+
 
         <div class="container" id="contactForm">
             <div id="title">Add Contact</div>
-            <form action="">
+            <form action="" id="C_add">
                 <div class="row ">
                     <div class="formElement col-2">
                         <label for="firstName">First Name: </label>
                     </div>
                     <div class="formElement col-8">
-                        <input type="text" name="firstName" id="firstName" placeholder="First Name">
+                        <input type="text" name="firstName" id="addFirstName" placeholder="First Name">
                     </div>
                 </div>
                 <div class="row">
@@ -57,7 +60,7 @@
                         <label for="lastName">Last Name: </label>
                     </div>
                     <div class="formElement col-8">
-                        <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+                        <input type="text" name="lastName" id="addLastName" placeholder="Last Name">
                     </div>
                 </div>
 
@@ -66,7 +69,7 @@
                         <label for="phone">Phone Number: </label>
                     </div>
                     <div class="formElement col-8">
-                        <input type="text" name="phone" id="phone" placeholder="XXX-XXX-XXXX">
+                        <input type="text" name="phone" id="addPhone" placeholder="XXX-XXX-XXXX">
                     </div>
                 </div>
 
@@ -75,11 +78,13 @@
                         <label for="email">Email Address: </label>
                     </div>
                     <div class="formElement col-8">
-                        <input type="email" name="email" id="email" placeholder="name@email.com">
+                        <input type="email" name="email" id="addEmail" placeholder="name@email.com">
                     </div>
                 </div>
                 <div class="addContactContainer py-1">
-                    <button class="btn btn-custom login-btn" id="addContactButton">Add Contact</button>
+                    <button type="button" class="btn btn-custom login-btn" id="addContactButton"
+                        onclick="addContact();">Add Contact</button>
+                    <span id="addContactResult"></span>
                 </div>
             </form>
         </div>

@@ -89,7 +89,6 @@ function doSignup() {
                     signupResult.textContent = jsonObject.error;
                 } else {
                     signupResult.textContent = "Signup successful!";
-                    window.location.href = '../contacts.html';
                 }
             }
         };
@@ -134,6 +133,8 @@ function doLogin() {
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
 
+                console.log("User ID after login:", userId);
+
                 saveCookie();
 
                 window.location.href = "../contacts.html";
@@ -151,13 +152,20 @@ function saveCookie() {
     let minutes = 20;
     let date = new Date();
     date.setTime(date.getTime() + (minutes * 60 * 1000));
-    document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+    document.cookie = "firstName=" + firstName + ";expires=" + date.toGMTString() + ";path=/";
+    document.cookie = "lastName=" + lastName + ";expires=" + date.toGMTString() + ";path=/";
+    document.cookie = "userId=" + userId + ";expires=" + date.toGMTString() + ";path=/";
+
+    let data = document.cookie;
+    console.log("Cookie data:", data);
 }
 
 function readCookie() {
     userId = -1;
     let data = document.cookie;
-    let splits = data.split(",");
+    console.log("Cookie data:", data); // Debugging statement
+    let splits = data.split(";");
+
     for (var i = 0; i < splits.length; i++) {
         let thisOne = splits[i].trim();
         let tokens = thisOne.split("=");
@@ -172,8 +180,12 @@ function readCookie() {
         }
     }
 
+    console.log("First Name from cookie:", firstName);
+    console.log("Last Name from cookie:", lastName);
+    console.log("User ID from cookie:", userId);
+
     if (userId < 0) {
-        window.location.href = "index.html";
+        window.location.href = "main.html";
     }
     else {
         //		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
@@ -213,6 +225,49 @@ function addColor() {
     }
 
 }
+
+
+function addContact() {
+    let firstName = document.getElementById("addFirstName").value;
+    let lastName = document.getElementById("addLastName").value;
+    let phone = document.getElementById("addPhone").value;
+    let email = document.getElementById("addEmail").value;
+
+    let tmp = {
+        firstName: firstName,
+        lastName: lastName,
+        phone: phone,
+        email: email,
+        userId: userId
+    };
+
+    let jsonPayload = JSON.stringify(tmp);
+    let url = urlBase + '/AddContacts.' + extension;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+
+    try {
+        xhr.onreadystatechange = function () {
+            if (this.readyState != 4) {
+                return;
+            }
+
+            if (this.readyState == 4 && this.status == 200) {
+                //console.log("Contact has been added");
+                addContactResult.textContent = "Contact Added Successfully!";
+                document.getElementById("C_add").reset();
+            }
+        };
+        xhr.send(jsonPayload);
+    } catch (err) {
+        document.getElementById("addContactButton").innerHTML = err.message;
+    }
+
+}
+
+
 
 function searchColor() {
     let srch = document.getElementById("searchText").value;
