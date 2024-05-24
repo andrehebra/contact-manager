@@ -89,7 +89,6 @@ function doSignup() {
                     signupResult.textContent = jsonObject.error;
                 } else {
                     signupResult.textContent = "Signup successful!";
-                    window.location.href = '../contacts.html';
                 }
             }
         };
@@ -153,7 +152,10 @@ function saveCookie() {
     let minutes = 20;
     let date = new Date();
     date.setTime(date.getTime() + (minutes * 60 * 1000));
-    document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+    document.cookie = "firstName=" + firstName + ";expires=" + date.toGMTString() + ";path=/";
+    document.cookie = "lastName=" + lastName + ";expires=" + date.toGMTString() + ";path=/";
+    document.cookie = "userId=" + userId + ";expires=" + date.toGMTString() + ";path=/";
+
     let data = document.cookie;
     console.log("Cookie data:", data);
 }
@@ -177,9 +179,11 @@ function readCookie() {
             userId = parseInt(tokens[1].trim());
         }
     }
-    /*console.log("First Name from cookie:", firstName);
+
+    console.log("First Name from cookie:", firstName);
     console.log("Last Name from cookie:", lastName);
-    console.log("User ID from cookie:", userId);*/
+    console.log("User ID from cookie:", userId);
+
     if (userId < 0) {
         window.location.href = "main.html";
     }
