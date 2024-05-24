@@ -1,0 +1,250 @@
+* {
+    font-family: "Kanit", sans-serif;
+    color: #1D3557;
+}
+
+nav {
+    background-color: #457B9D;
+}
+
+nav .navBar {
+    color: white;
+    font-size: 2.3vh;
+}
+
+#mainNavbar {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.container-fluid {
+    background-color: #457B9D;
+}
+
+.d-flex {
+    background-color: #457B9D;
+    display: flex;
+    justify-content: center;
+    padding-left: 2.3%;
+}
+
+.Contact {
+    margin-right: 3%;
+}
+
+
+/* background color of the body */
+body {
+    font-family: "Kanit", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+* {
+    background-color: #f1faee;
+}
+
+.addContactContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.formElement {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+label {
+    width: 100%;
+    text-align: end;
+}
+
+.btn {
+    font-family: "Kanit", sans-serif;
+}
+
+.btn-custom {
+    background-color: #E63946;
+    /* Deep teal background */
+    border-color: #1D3557;
+    /* Slightly darker teal border */
+    color: white;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-custom:hover,
+.btn-custom.active {
+    background-color: #ce2e3b;
+    /* Darker shade on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add box shadow on hover */
+    color: white;
+}
+
+
+input {
+    font-family: "Kanit", sans-serif;
+    border: 1px solid #1D3557;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    border-color: #66afe9;
+    /* Change border color on focus */
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+    /* Add glow effect */
+    outline: none;
+    /* Remove default outline */
+}
+
+/* Navbar */
+/*#mainNavbar {
+    background-color: #457B9D;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}*/
+
+/* Navbar title */
+/*#mainNavbar .navbar-brand {
+    color: white;
+    font-size: 1.5em;
+    text-decoration: none;
+    padding: 10px;
+}
+
+/* Navbar btn 
+#mainNavbar .navBar.nav-item.nav-link.btn-lg {
+    background-color: #95060a;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+/* Button hover color 
+#mainNavbar .navBar.nav-item.nav-link.btn-lg:hover {
+    background-color: #7e0508;
+}*/
+
+/* Title */
+#title {
+    
+    font-size: 40px;
+    width: 100%;
+    margin: 0% 0%;
+    text-align: center;
+    color: #1D3557;
+    margin-top: 3%;
+    padding-top: 3%;
+    background-color: #A8DADC;
+}
+
+/* Form */
+
+form {
+    background-color: #A8DADC;
+}
+
+form div,
+label {
+    background-color: #A8DADC;
+}
+
+main {
+    padding: 20px;
+    background-color: #f1faee;
+}
+
+/* background-color: of the form */
+.container {
+    padding: 0px 0px 20px 0px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 5%;
+    background-color: #A8DADC;
+}
+
+/* Button */
+.buttons {
+    font-size: 1em;
+    border-radius: 25px;
+    padding: 10px 20px;
+    background-color: #95060a;
+    color: white;
+    margin: 10px, auto;
+    cursor: pointer;
+}
+
+/* Button hover color */
+.buttons:hover {
+    background-color: #7e0508;
+    color: #FFFFFF;
+    opacity: 50%;
+}
+
+/* Button container to center the button */
+.button-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Form */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    border-radius: 25px;
+    text-align: center;
+    width: 80%;
+    margin: 10px auto;
+    display: block;
+    padding: 2px 0;
+    font-family: "Kanit", sans-serif;
+    font-size: 2.3vh;
+}
+
+@media (max-width: 550px) {
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        font-size: 2.0vh;
+    }
+    nav .navBar {
+        font-size: 1.7vh;
+    }
+}
+    /* Table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    /* Table border */
+    table,
+    th,
+    td {
+        border: 1px solid #ddd;
+    }
+
+    /* Table cell padding */
+    th,
+    td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    /* Table cell colors*/
+    th {
+        background-color: #457B9D;
+        color: white;
+    }
