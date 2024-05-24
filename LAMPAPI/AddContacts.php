@@ -1,7 +1,10 @@
 <?php
     $inData = getRequestInfo();
-
-    $searchTerm = "%" . $inData["search"] . "%";
+    
+    $firstName = $inData["firstName"];
+    $lastName = $inData["lastName"];
+    $phone = $inData["phone"];
+    $email = $inData["email"];
     $userId = $inData["userId"];
 
     $conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
@@ -11,29 +14,31 @@
     } 
     else
     {
-        $stmt = $conn->prepare("SELECT ID, FirstName, LastName, Phone, Email FROM Contacts WHERE UserID=? AND (FirstName LIKE ? OR LastName LIKE ? OR Phone LIKE ? OR Email LIKE ?)");
-        $stmt->bind_param("issss", $userId, $searchTerm, $searchTerm, $searchTerm, $searchTerm);
+        // Check if the contact already exists for the user
+        $stmt = $conn->prepare("SELECT ID FROM Contacts WHERE FirstName=? AND LastName=? AND Email=? AND UserID=?");
+        $stmt->bind_param("sssi", $firstName, $lastName, $email, $userId);
         $stmt->execute();
-        
         $result = $stmt->get_result();
 
-        $contacts = array();
-        
-        while($row = $result->fetch_assoc())
+        if ($result->num_rows > 0) 
         {
-            $contacts[] = $row;
+            returnWithError("Contact already exists");
+        } 
+        else 
+        {
+            $stmt = $conn->prepare("INSERT INTO Contacts (FirstName, LastName, Phone, Email, UserID) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssi", $firstName, $lastName, $phone, $email, $userId);
+            if($stmt->execute())
+            {
+                returnWithError("Contact added successfully"); 
+            }
+            else
+            {
+                returnWithError($stmt->error);
+            }
+            $stmt->close();
         }
 
-        if (count($contacts) > 0)
-        {
-            returnWithInfo($contacts);
-        }
-        else
-        {
-            returnWithError("No Records Found");
-        }
-        
-        $stmt->close();
         $conn->close();
     }
 
@@ -51,12 +56,6 @@
     function returnWithError($err)
     {
         $retValue = '{"error":"' . $err . '"}';
-        sendResultInfoAsJson($retValue);
-    }
-
-    function returnWithInfo($contacts)
-    {
-        $retValue = json_encode($contacts);
         sendResultInfoAsJson($retValue);
     }
 ?>
