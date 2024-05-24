@@ -8,7 +8,7 @@
     <title>Contacts</title>
 
     <!--CSS and JS-->
-    <link rel="stylesheet" href="css/contacts.css">
+    <link rel="stylesheet" href="css/add_contacts.css">
     <script src="js/code.js" defer></script>
 
     <link
@@ -22,47 +22,67 @@
 
 <body>
     <!-- Navbar -->
-    <nav id="mainNavbar" class="navbar">
-        <a href="main.html" class="Navi navBar navbar-brand">LOGO</a>
-        <a href="login_signup/login_signup.html"
-            class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Contacts</a>
-        <a href="login_signup/login_signup.html"
-            class="logSign btn btn-custom navBar nav-item nav-link btn-lg">About Us </a>
-        <a href="login_signup/login_signup.html"
-            class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Logout</a>
+    <nav id="mainNavbar" class="navbar ">
+        <div class="container-fluid">
+            <a href="main.html" class="Navi navBar navbar-brand">LOGO</a>
+            <div class="d-flex">
+                <a href="login_signup/login_signup.html"
+                    class="Contact btn btn-custom navBar nav-item nav-link btn-lg">Contacts</a>
+                <a href="login_signup/login_signup.html"
+                    class="logSign btn btn-custom navBar nav-item nav-link btn-lg">About Us
+                </a>
+            </div>
+            <a href="login_signup/login_signup.html"
+                class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Logout</a>
+        </div>
     </nav>
 
     <!-- contact feilds -->
     <main>
-        <div id="title">Add Contact</div>
         
+
         <div class="container" id="contactForm">
+            <div id="title">Add Contact</div>
             <form action="">
-                <div class="formElement">
-                    <label for="firstName">First Name: </label>
-                    <input type="text" name="firstName" id="firstName" placeholder="First Name">
+                <div class="row ">
+                    <div class="formElement col-2">
+                        <label for="firstName">First Name: </label>
+                    </div>
+                    <div class="formElement col-8">
+                        <input type="text" name="firstName" id="firstName" placeholder="First Name">
+                    </div>
                 </div>
-                <div class="formElement">
-                    <label for="lastName">Last Name: </label>
-                    <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+                <div class="row">
+                    <div class="formElement col-2">
+                        <label for="lastName">Last Name: </label>
+                    </div>
+                    <div class="formElement col-8">
+                        <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+                    </div>
                 </div>
-                <div class="formElement">
-                    <label for="phone">Phone Number: </label>
-                    <input type="text" name="phone" id="phone" placeholder="Phone">
+
+                <div class="row">
+                    <div class="formElement col-2 ">
+                        <label for="phone">Phone Number: </label>
+                    </div>
+                    <div class="formElement col-8">
+                        <input type="text" name="phone" id="phone" placeholder="XXX-XXX-XXXX">
+                    </div>
                 </div>
-                <div class="formElement">
-                    <label for="email">Email Address: </label>
-                    <input type="email" name="email" id="email" placeholder="Email">
+
+                <div class="row">
+                    <div class="formElement col-2">
+                        <label for="email">Email Address: </label>
+                    </div>
+                    <div class="formElement col-8">
+                        <input type="email" name="email" id="email" placeholder="name@email.com">
+                    </div>
                 </div>
-                <div class="addContactContainer">
+                <div class="addContactContainer py-1">
                     <button class="btn btn-custom login-btn" id="addContactButton">Add Contact</button>
                 </div>
             </form>
         </div>
-
-        
-
-
     </main>
 </body>
 

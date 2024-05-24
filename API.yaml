@@ -1,0 +1,104 @@
+swagger: '2.0'
+info:
+  description: This is the API documentation for the COP 4331 Demo Contacts App
+  version: 1.0.0
+  title: The Groovy Contacts App
+  # put the contact info for your development or API team
+  contact:
+    email: Richard.Leinecker@ucf.edu
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+paths:
+  /Login.php:
+    post:
+      tags:
+      - Users
+      summary: Logs in to the Contacts app
+      operationId: dlLogin
+      description: Logs in to Contacts app
+      consumes:
+      - applicatoin/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: loginItem
+        description: Login
+        schema:
+          $ref: '#/definitions/Login'
+      responses:
+        200:
+          description: OK
+        404:
+          description: URL Not Found
+        500:
+          description: Server Error
+  /Register.php:
+    post:
+      tags:
+      - Users
+      summary: Registers a new user
+      operationId: registerUser
+      description: Registers a new user in the contacts app
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: registerItem
+        description: User registration details
+        schema:
+          $ref: '#/definitions/Register'
+      responses:
+        200:
+          description: OK
+        404:
+          description: URL Not Found
+        500:
+          description: Server Error
+
+          
+  
+definitions:
+  Login:
+    type: object
+    required:
+    - login
+    - password
+    properties:
+      login:
+        type: string
+        example: "fred"
+      password:
+        type: string
+        example: "secret"
+  Register:
+    type: object
+    required:
+    - Login
+    - Password
+    - FirstName
+    - LastName
+    properties:
+      Login:
+        type: string
+        example: "Hashy101"
+      Password:
+        type: string
+        example: "password1!"
+      FirstName: 
+        type: string
+        example: "Hashim"
+      LastName: 
+        type: string
+        example: "Alkh"
+  
+
+host: cityfolk.world
+basePath: /LAMPAPI
+schemes:
+- http
