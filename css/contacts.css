@@ -23,6 +23,21 @@ nav .navBar {
     gap: 15px;
 }
 
+.container-fluid {
+    background-color: #457B9D;
+}
+
+.d-flex {
+    background-color: #457B9D;
+    display: flex;
+    justify-content: center;
+    padding-left: 2.3%;
+}
+
+.Contact {
+    margin-right: 3%;
+}
+
 /* background color of the body */
 body {
     font-family: "Kanit", sans-serif;
