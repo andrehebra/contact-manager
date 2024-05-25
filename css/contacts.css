@@ -77,6 +77,12 @@ input[type="text"] {
     /* Ensure the header stays above the table rows */
 }
 
+.table thead,
+.table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
 
 .addContactContainer {
     display: flex;
@@ -121,7 +127,22 @@ label {
     color: white;
 }
 
+@media (max-width: 550px) {
+    nav .navBar {
+        font-size: 1.7vh;
+    }
 
+    .table th,
+    .table td {
+        font-size: 1.6vh;
+        /* Adjust font size for smaller screens */
+    }
+
+    .table thead {
+        font-size: 1.8vh;
+        /* Adjust font size for thead for smaller screens */
+    }
+}
 
 input {
     font-family: "Kanit", sans-serif;
@@ -260,6 +281,7 @@ th,
 td {
     padding: 10px;
     text-align: left;
+    word-wrap: break-word;
 }
 
 /* Table cell colors*/
