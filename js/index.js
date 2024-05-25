@@ -232,15 +232,17 @@ function addContact() {
     let lastName = document.getElementById("addLastName").value;
     let phone = document.getElementById("addPhone").value;
     let email = document.getElementById("addEmail").value;
+    
+    const result = document.getElementById("addContactResult");
 
     let phoneRegex = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
     let emailRegex = /^([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})$/;
 
     if (!firstName.trim()) {
-        errorMessage += 'First name cannot be blank. ';
+        result.innerHTML =  'First name cannot be blank. ';
     }
     if (!lastName.trim()) {
-        errorMessage += 'Last name cannot be blank. ';
+        result.innerHTML =  'Last name cannot be blank. ';
     }
     if (!phoneRegex.test(phone)) {
         result.innerHTML = "Phone Number must be in the format ###-###-####.";
@@ -321,5 +323,101 @@ function searchColor() {
     }
     catch (err) {
         document.getElementById("colorSearchResult").innerHTML = err.message;
+    }
+}
+
+
+function searchContacts() {
+    console.log("searching contacts");
+    //get search query
+    let srch = document.getElementById("searchText").value;
+    //get table element to add in
+    let table = document.getElementById("contacttablebody");
+
+    table.innerHTML = "";
+
+    let contactList = "";
+
+    let temp = { search: srch, userId: userId };
+
+    let jsonPayload = JSON.stringify(tmp);
+
+    let url = urlBase + '/SearchContacts.' + extension;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+    try {
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                //document.getElementById("colorSearchResult").innerHTML = "Color(s) has been retrieved";
+                let jsonObject = JSON.parse(xhr.responseText);
+                for (let i = 0; i < jsonObject.results.length; i++) {
+                    contactList += jsonObject.results[i];
+                    if (i < jsonObject.results.length - 1) {
+                        contactList += "<br />\r\n";
+                    }
+                }
+
+                document.getElementsByTagName("p")[0].innerHTML = contactList;
+            }
+        };
+        xhr.send(jsonPayload);
+    }
+    catch (err) {
+        document.getElementById("colorSearchResult").innerHTML = err.message;
+    }
+    
+    console.log(contactList);
+}
+
+function loadContacts() {
+    console.log("load contacts function");
+    
+    let tmp = {
+        search: "",
+        userId: userId,
+    }
+
+    let jsonPayload = JSON.stringify(tmp);
+
+    let url = urlBase + '/SearchContacts.' + extension;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    try {
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let jsonObject = JSON.parse(xhr.responseText);
+                console.log(jsonObject);
+                if (jsonObject.error) {
+                    console.log(jsonObject.error);
+                    //return;
+                }
+                let text = "<table border='1'>"
+                for (let i = 0; i < jsonObject.results.length; i++) {
+                    //ids[i] = jsonObject.results[i].ID
+                    text += "<tr id='row" + i + "'>"
+                    text += "<td id='first_Name" + i + "'><span>" + jsonObject.results[i].FirstName + "</span></td>";
+                    text += "<td id='last_Name" + i + "'><span>" + jsonObject.results[i].LastName + "</span></td>";
+                    text += "<td id='email" + i + "'><span>" + jsonObject.results[i].Email + "</span></td>";
+                    text += "<td id='phone" + i + "'><span>" + jsonObject.results[i].Phone + "</span></td>";
+                    text += "<td>" +
+                        "<button type='button' id='edit_button" + i + "' class='w3-button w3-circle w3-lime' onclick='edit_row(" + i + ")'>" + "<span class='glyphicon glyphicon-edit'></span>" + "</button>" +
+                        "<button type='button' id='save_button" + i + "' value='Save' class='w3-button w3-circle w3-lime' onclick='save_row(" + i + ")' style='display: none'>" + "<span class='glyphicon glyphicon-saved'></span>" + "</button>" +
+                        "<button type='button' onclick='delete_row(" + i + ")' class='w3-button w3-circle w3-amber'>" + "<span class='glyphicon glyphicon-trash'></span> " + "</button>" + "</td>";
+                    text += "<tr/>"
+                }
+                text += "</table>"
+                document.getElementById("contacttablebody").innerHTML = text;
+                console.log("text: ");
+                console.log(text);
+            }
+        };
+        xhr.send(jsonPayload);
+    } catch (err) {
+        console.log(err.message);
     }
 }
