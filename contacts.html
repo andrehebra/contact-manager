@@ -14,8 +14,8 @@
 
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
-          readCookie()
-          loadContacts()
+            readCookie()
+            loadContacts()
         }, false);
     </script>
 
@@ -30,14 +30,16 @@
 
 <body>
     <!-- Navbar -->
-    <nav id="mainNavbar" class="navbar">
-        <a href="main.html" class="Navi navBar navbar-brand">LOGO</a>
-        <a href="login_signup/login_signup.html"
-            class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Contacts</a>
-        <a href="./add_contact.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Add New Contact</a>
-        <a href="about_us.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">About Us
-        </a>
-        <a href="#" class="logSign btn btn-custom navBar nav-item nav-link btn-lg" onclick="doLogout();">Logout</a>
+    <nav id="mainNavbar" class="navbar ">
+        <div class="container-fluid">
+            <a href="main.html" class="Navi navBar navbar-brand">LOGO</a>
+            <div class="d-flex">
+                <a href="add_contact.html" class="Contact btn btn-custom navBar nav-item nav-link btn-lg">Add
+                    Contact</a>
+                <a href="about_us.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">About Us</a>
+            </div>
+            <a href="#" class="logSign btn btn-custom navBar nav-item nav-link btn-lg" onclick="doLogout();">Logout</a>
+        </div>
     </nav>
 
     <!-- contact feilds -->
@@ -46,27 +48,30 @@
         <div class="container" id="contactForm">
             <form action="">
                 <div class="searchContainer">
-                    <input type="text" name="firstName" id="searchText" placeholder="Enter Name, Email, or Phone Number">
+                    <input type="text" name="firstName" id="searchText"
+                        placeholder="Enter Name, Email, or Phone Number">
                 </div>
                 <div class="addContactContainer">
-                    <button onclick="searchContacts()" class="btn btn-custom login-btn" id="addContactButton">Search</button>
+                    <button onclick="searchContacts()" class="btn btn-custom login-btn"
+                        id="addContactButton">Search</button>
                 </div>
             </form>
         </div>
 
         <!-- Table of contacts -->
-        <div class="container">
-            <table>
-                <thead>
+        <div class="container table-container overflow-hidden py-0">
+            <table class="table">
+                <thead class="table-borderless">
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody id="contacttablebody">
-                    
+                <tbody class="t_body" id="contacttablebody">
+
                 </tbody>
             </table>
         </div>
