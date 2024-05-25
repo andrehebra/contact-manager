@@ -1,6 +1,11 @@
 * {
     font-family: "Kanit", sans-serif;
     color: #1D3557;
+    background-color: white;
+}
+
+html {
+    background-color: #f1faee;
 }
 
 nav {
@@ -18,19 +23,45 @@ nav .navBar {
     gap: 15px;
 }
 
-
-
 /* background color of the body */
 body {
     font-family: "Kanit", sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
-}
-
-* {
     background-color: #f1faee;
 }
+
+#title {
+    background-color: #f1faee;
+}
+
+input[type="text"] {
+    background-color: white;
+}
+
+.table-container {
+    max-height: 570px;
+    /* Adjust the height as needed */
+    overflow-y: scroll;
+    background-color: white;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.table thead {
+    position: relative;
+    top: 0;
+    background-color: #fff;
+    /* Adjust background color as needed */
+    z-index: 1;
+    /* Ensure the header stays above the table rows */
+}
+
 
 .addContactContainer {
     display: flex;
@@ -140,9 +171,11 @@ form {
     background-color: #A8DADC;
 }
 
-form div, label {
+form div,
+label {
     background-color: #A8DADC;
 }
+
 main {
     padding: 20px;
     background-color: #f1faee;
@@ -153,7 +186,7 @@ main {
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px;
-    
+
 }
 
 /* Button */
@@ -201,12 +234,15 @@ table {
 }
 
 /* Table border */
-table, th, td {
+table,
+th,
+td {
     border: 1px solid #ddd;
 }
 
 /* Table cell padding */
-th, td {
+th,
+td {
     padding: 10px;
     text-align: left;
 }

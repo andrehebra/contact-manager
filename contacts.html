@@ -14,8 +14,8 @@
 
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
-          readCookie()
-          loadContacts()
+            readCookie()
+            loadContacts()
         }, false);
     </script>
 
@@ -46,27 +46,30 @@
         <div class="container" id="contactForm">
             <form action="">
                 <div class="searchContainer">
-                    <input type="text" name="firstName" id="searchText" placeholder="Enter Name, Email, or Phone Number">
+                    <input type="text" name="firstName" id="searchText"
+                        placeholder="Enter Name, Email, or Phone Number">
                 </div>
                 <div class="addContactContainer">
-                    <button onclick="searchContacts()" class="btn btn-custom login-btn" id="addContactButton">Search</button>
+                    <button onclick="searchContacts()" class="btn btn-custom login-btn"
+                        id="addContactButton">Search</button>
                 </div>
             </form>
         </div>
 
         <!-- Table of contacts -->
-        <div class="container">
-            <table>
-                <thead>
+        <div class="container table-container overflow-hidden py-0">
+            <table class="table">
+                <thead class="table-borderless">
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody id="contacttablebody">
-                    
+                <tbody class="t_body" id="contacttablebody">
+
                 </tbody>
             </table>
         </div>
