@@ -9,12 +9,13 @@
 
     <!--CSS and JS-->
     <link rel="stylesheet" href="css/contacts.css">
-    <script type="text/javascript" src="../js/md5.js"></script>
-    <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript" src="/js/md5.js"></script>
 
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
-            readCookie();
+          readCookie()
+          loadContacts()
         }, false);
     </script>
 
@@ -45,10 +46,10 @@
         <div class="container" id="contactForm">
             <form action="">
                 <div class="searchContainer">
-                    <input type="text" name="firstName" id="firstName" placeholder="Enter Name, Email, or Phone Number">
+                    <input type="text" name="firstName" id="searchText" placeholder="Enter Name, Email, or Phone Number">
                 </div>
                 <div class="addContactContainer">
-                    <button class="btn btn-custom login-btn" id="addContactButton">Search</button>
+                    <button onclick="searchContacts()" class="btn btn-custom login-btn" id="addContactButton">Search</button>
                 </div>
             </form>
         </div>
@@ -64,8 +65,8 @@
                         <th>Phone</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <!-- Contacts will be stored here-->
+                <tbody id="contacttablebody">
+                    
                 </tbody>
             </table>
         </div>
@@ -73,5 +74,7 @@
 
     </main>
 </body>
+
+
 
 </html>
