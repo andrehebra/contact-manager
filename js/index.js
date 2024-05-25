@@ -232,17 +232,17 @@ function addContact() {
     let lastName = document.getElementById("addLastName").value;
     let phone = document.getElementById("addPhone").value;
     let email = document.getElementById("addEmail").value;
-    
+
     const result = document.getElementById("addContactResult");
 
     let phoneRegex = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
-    let emailRegex = /^([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})$/;
+    let emailRegex = /^([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,5})$/;
 
     if (!firstName.trim()) {
-        result.innerHTML =  'First name cannot be blank. ';
+        result.innerHTML = 'First name cannot be blank. ';
     }
     if (!lastName.trim()) {
-        result.innerHTML =  'Last name cannot be blank. ';
+        result.innerHTML = 'Last name cannot be blank. ';
     }
     if (!phoneRegex.test(phone)) {
         result.innerHTML = "Phone Number must be in the format ###-###-####.";
@@ -367,13 +367,13 @@ function searchContacts() {
     catch (err) {
         document.getElementById("colorSearchResult").innerHTML = err.message;
     }
-    
+
     console.log(contactList);
 }
 
 function loadContacts() {
     console.log("load contacts function");
-    
+
     let tmp = {
         search: "",
         userId: userId,
