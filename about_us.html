@@ -7,33 +7,39 @@
     <title>About Us</title>
 
     <!-- CSS and JS -->
-    <script src="js/code.js" defer></script>
+    <script src="js/index.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="css/about_us.css">
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav id="mainNavbar" class="navbar">
-        <a href="main.html" class="Navi navBar navbar-brand">LOGO</a>
-        <a href="login_signup/login_signup.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Contacts</a>
-        <a href="./add_contact.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Add New Contact</a>
-        <a href="login_signup/login_signup.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">About Us</a>
-        <a href="login_signup/login_signup.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Logout</a>
+    <nav id="mainNavbar" class="navbar ">
+        <div class="container-fluid">
+            <a href="main.html" class="Navi navBar navbar-brand">LOGO</a>
+            <div class="d-flex">
+                <a href="contacts.html" class="Contact btn btn-custom navBar nav-item nav-link btn-lg">Contacts</a>
+                <a href="add_contact.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Add
+                    Contacts</a>
+            </div>
+            <a href="#" class="logSign btn btn-custom navBar nav-item nav-link btn-lg" onclick="doLogout();">Logout</a>
+        </div>
     </nav>
 
     <!-- About Us -->
     <div id="aboutUs" class="container mt-5">
         <h1>About Us</h1>
         <p>POOSD</p>
-        
-        
+
+
         <h2>Meet Our Team</h2>
 
         <div class="row">
             <div class="col-md-4 team-member">
-                <img src="https://avatars.githubusercontent.com/u/140007985?v=4" alt="Hashim Alkhateeb" class="rounded-circle">
+                <img src="https://avatars.githubusercontent.com/u/140007985?v=4" alt="Hashim Alkhateeb"
+                    class="rounded-circle">
                 <h3>Alkhateeb, Hashim</h3>
                 <p>
                     <a href="https://github.com/HashDBrown" target="_blank">GitHub</a> |
@@ -42,7 +48,8 @@
             </div>
 
             <div class="col-md-4 team-member">
-                <img src="https://avatars.githubusercontent.com/u/140007985?v=4" alt="Brittany Clark" class="rounded-circle">
+                <img src="https://avatars.githubusercontent.com/u/140007985?v=4" alt="Brittany Clark"
+                    class="rounded-circle">
                 <h3>Clark, Brittany</h3>
                 <p>
                     <a href="https://github.com/member2" target="_blank">GitHub</a> |
@@ -51,7 +58,8 @@
             </div>
 
             <div class="col-md-4 team-member">
-                <img src="https://avatars.githubusercontent.com/u/127911986?v=4" alt="Muzamil Shamsi" class="rounded-circle">
+                <img src="https://avatars.githubusercontent.com/u/127911986?v=4" alt="Muzamil Shamsi"
+                    class="rounded-circle">
                 <h3>Shamsi, Muzamil</h3>
                 <p>
                     <a href="https://github.com/Muzamil-dev" target="_blank">GitHub</a> |
@@ -60,7 +68,8 @@
             </div>
 
             <div class="col-md-4 team-member">
-                <img src="https://avatars.githubusercontent.com/u/52555960?v=4" alt="Andre Hebra" class="rounded-circle">
+                <img src="https://avatars.githubusercontent.com/u/52555960?v=4" alt="Andre Hebra"
+                    class="rounded-circle">
                 <h3>Hebra, Andre</h3>
                 <p>
                     <a href="https://github.com/andrehebra" target="_blank">GitHub</a> |

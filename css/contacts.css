@@ -31,7 +31,7 @@ nav .navBar {
     background-color: #457B9D;
     display: flex;
     justify-content: center;
-    padding-left: 2.3%;
+    padding-left: 0;
 }
 
 .Contact {
@@ -107,6 +107,7 @@ label {
 
 .btn {
     font-family: "Kanit", sans-serif;
+    border: 1px solid #1D3557 !important;
 }
 
 .btn-custom {
@@ -141,6 +142,12 @@ label {
     .table thead {
         font-size: 1.8vh;
         /* Adjust font size for thead for smaller screens */
+    }
+}
+
+@media (max-width: 444px) {
+    nav .navBar {
+        font-size: 1.5vh;
     }
 }
 

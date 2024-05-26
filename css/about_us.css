@@ -1,3 +1,4 @@
+@import url("../css/index.css");
 /* about_us.css */
 
 /* General Styles */
@@ -32,6 +33,15 @@ nav .navBar:hover {
     color: #f1faee;
 }
 
+.d-flex {
+    margin-left: 3.5%;
+}
+
+.container-fluid {
+    padding-left: 10px;
+    padding-right: 0px;
+}
+
 /* Button Styles */
 .btn-custom {
     background-color: #E63946;
@@ -52,8 +62,9 @@ nav .navBar:hover {
     padding: 20px;
     background-color: #A8DADC;
     border-radius: 8px;
-    margin: 20px auto;
-    max-width: 900px; /* Limit the maximum width */
+    margin: 0px auto;
+    max-width: 900px;
+    /* Limit the maximum width */
 }
 
 /* About Us Section Title */
@@ -88,8 +99,8 @@ nav .navBar:hover {
 /* Team Member Picture */
 .team-member img {
     border-radius: 50%;
-    width: 120px; 
-    height: 120px; 
+    width: 120px;
+    height: 120px;
     margin-bottom: 10px;
 }
 
@@ -120,7 +131,7 @@ nav .navBar:hover {
 @media (max-width: 768px) {
     #aboutUs {
         padding: 10px;
-        margin: 10px;
+        margin: 0px;
     }
 
     #aboutUs h1 {
@@ -143,4 +154,27 @@ nav .navBar:hover {
         width: 100px;
         height: 100px;
     }
+}
+
+@media (max-width: 560px) {
+
+    nav .navBar {
+        font-size: 1.7vh;
+    }
+    .d-flex {
+        margin-left: 1%;
+    }
+}
+
+@media (max-width: 460px) {
+    nav .navBar {
+        font-size: 1.5vh;
+    }
+    nav .navBar {
+        margin-right: 5px;
+    }
+    .container-fluid {
+        padding-left: 0px;
+    }
+    
 }
