@@ -15,12 +15,15 @@
 
 <body>
     <!-- Navbar -->
-    <nav id="mainNavbar" class="navbar">
-        <a href="main.html" class="Navi navBar navbar-brand">LOGO</a>
-        <a href="login_signup/login_signup.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Contacts</a>
-        <a href="./add_contact.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Add New Contact</a>
-        <a href="login_signup/login_signup.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">About Us</a>
-        <a href="login_signup/login_signup.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Logout</a>
+    <nav id="mainNavbar" class="navbar ">
+        <div class="container-fluid">
+            <a href="main.html" class="Navi navBar navbar-brand">LOGO</a>
+            <div class="d-flex">
+                <a href="contacts.html" class="Contact btn btn-custom navBar nav-item nav-link btn-lg">Contacts</a>
+                <a href="add_contact.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Add Contacts</a>
+            </div>
+            <a href="#" class="logSign btn btn-custom navBar nav-item nav-link btn-lg" onclick="doLogout();">Logout</a>
+        </div>
     </nav>
 
     <!-- About Us -->

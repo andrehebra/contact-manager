@@ -1,3 +1,4 @@
+@import url("../css/index.css");
 /* about_us.css */
 
 /* General Styles */
@@ -32,6 +33,15 @@ nav .navBar:hover {
     color: #f1faee;
 }
 
+.d-flex {
+    margin-left: 5%;
+}
+
+.container-fluid {
+    padding-left: 10px;
+    padding-right: 0px;
+}
+
 /* Button Styles */
 .btn-custom {
     background-color: #E63946;
@@ -53,7 +63,8 @@ nav .navBar:hover {
     background-color: #A8DADC;
     border-radius: 8px;
     margin: 20px auto;
-    max-width: 900px; /* Limit the maximum width */
+    max-width: 900px;
+    /* Limit the maximum width */
 }
 
 /* About Us Section Title */
@@ -88,8 +99,8 @@ nav .navBar:hover {
 /* Team Member Picture */
 .team-member img {
     border-radius: 50%;
-    width: 120px; 
-    height: 120px; 
+    width: 120px;
+    height: 120px;
     margin-bottom: 10px;
 }
 
