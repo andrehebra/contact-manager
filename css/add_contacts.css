@@ -234,6 +234,13 @@ input[type="email"] {
     }
 }
 
+@media (max-width: 444px) {
+    nav .navBar {
+        font-size: 1.5vh;
+    }
+}
+
+
 /* Table */
 table {
     width: 100%;
