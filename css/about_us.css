@@ -1,5 +1,4 @@
 @import url("../css/index.css");
-/* about_us.css */
 
 /* General Styles */
 body {
@@ -18,7 +17,8 @@ body {
 nav {
     background-color: #457B9D;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px;
 }
 
@@ -40,6 +40,32 @@ nav .navBar:hover {
 .container-fluid {
     padding-left: 10px;
     padding-right: 0px;
+}
+
+.toggle-button {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-links .d-flex,
+.navbar-links a {
+    display: flex;
+    align-items: center;
 }
 
 /* Button Styles */
@@ -157,24 +183,58 @@ nav .navBar:hover {
 }
 
 @media (max-width: 560px) {
-
     nav .navBar {
         font-size: 1.7vh;
     }
     .d-flex {
-        margin-left: 1%;
+        margin-left: 2%;
     }
 }
 
-@media (max-width: 460px) {
-    nav .navBar {
-        font-size: 1.5vh;
+/* Media Queries for Mobile */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
     }
-    nav .navBar {
-        margin-right: 5px;
+
+    .toggle-button {
+        display: flex;
     }
-    .container-fluid {
-        padding-left: 0px;
+
+    .navbar-links {
+        display: none;
+        width: 100%;
     }
-    
+
+    .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-links ul li {
+        text-align: center;
+    }
+
+    .navbar-links ul li a {
+        padding: .5rem 1rem;
+    }
+
+    .navbar-links.active {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar-links .d-flex {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar-links .d-flex a,
+    .navbar-links a {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
 }
