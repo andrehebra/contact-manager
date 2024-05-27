@@ -46,14 +46,13 @@
     <main>
         <div id="title">Welcome, [INSERT NAME HERE]!</div>
         <div class="container" id="contactForm">
-            <form action="">
+            <form action="" onsubmit="searchContacts(event)">
                 <div class="searchContainer">
                     <input type="text" name="firstName" id="searchText"
                         placeholder="Enter Name, Email, or Phone Number">
                 </div>
                 <div class="addContactContainer">
-                    <button onclick="searchContacts()" class="btn btn-custom login-btn"
-                        id="addContactButton">Search</button>
+                    <button type="submit" class="btn btn-custom login-btn" id="addContactButton">Search</button>
                 </div>
             </form>
         </div>
