@@ -17,6 +17,10 @@ nav .navBar {
     font-size: 2.3vh;
 }
 
+nav .navBar:hover {
+    color: white;
+}
+
 #mainNavbar {
     display: flex;
     justify-content: flex-start;

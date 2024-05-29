@@ -15,6 +15,10 @@ nav .navBar {
     font-size: 2.3vh;
 }
 
+nav .navBar:hover {
+    color: white;
+}
+
 .navbar-links{
     display: flex;
     justify-content: center;
@@ -99,7 +103,7 @@ label {
     /* Darker shade on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     /* Add box shadow on hover */
-    color: white;
+    color: white !important;
 }
 
 
