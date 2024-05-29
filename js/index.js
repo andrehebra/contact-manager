@@ -188,8 +188,7 @@ function readCookie() {
         window.location.href = "main.html";
     }
     else {
-        document.title = "Contacts - " + firstName + " " + lastName;
-        document.getElementById("title").innerHTML = "Welcome " + firstName + " " + lastName + "!";
+        document.getElementById("welcomeMessage").innerHTML = "Welcome " + firstName + " " + lastName + "!";
     }
 }
 

@@ -1,4 +1,4 @@
-@import url("../css/index.css");
+/*@import url("../css/index.css");*/
 
 * {
     font-family: "Kanit", sans-serif;
@@ -81,6 +81,8 @@ label {
 .btn {
     font-family: "Kanit", sans-serif;
     border: 1px solid #1D3557 !important;
+    background-color: #c6303c;
+    color: white;
 }
 
 #addContactResult {
@@ -88,7 +90,7 @@ label {
 }
 
 .btn .btn-custom {
-    background-color: #c6303c;
+    background-color: #c6303c !important;
     /* Deep teal background */
     border-color: #1D3557;
     border: 1px solid #1D3557 !important;
