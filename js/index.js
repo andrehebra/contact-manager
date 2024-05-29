@@ -275,9 +275,17 @@ function addContact() {
             }
 
             if (this.readyState == 4 && this.status == 200) {
-                //console.log("Contact has been added");
-                addContactResult.textContent = "Contact Added Successfully!";
-                document.getElementById("C_add").reset();
+                let response = JSON.parse(xhr.responseText);
+                if (response.error) {
+                    if (response.error === "Contact already exists") {
+                        result.textContent = "This contact already exists.";
+                    } else {
+                        result.textContent = "Error: " + response.error;
+                    }
+                } else {
+                    result.textContent = "Contact Added Successfully!";
+                    document.getElementById("C_add").reset();
+                }
             }
         };
         xhr.send(jsonPayload);

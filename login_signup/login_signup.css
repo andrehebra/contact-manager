@@ -31,13 +31,13 @@ h1 {
     color: #457b9D;
 }
 
-#login_b, #signup_b {
+#login_b,
+#signup_b {
     font-size: 2.0vh;
 }
 
 .btn {
     font-family: "Kanit", sans-serif;
-    border: 1px solid #1D3557 !important;
 }
 
 .btn-custom {
@@ -311,4 +311,8 @@ select {
     margin-bottom: 1%;
     font-family: "Kanit", sans-serif;
     color: #95060a;
+}
+
+span {
+    color: #1D3557;
 }
