@@ -70,7 +70,7 @@ nav .navBar:hover {
 
 /* Button Styles */
 .btn-custom {
-    background-color: #E63946;
+    background-color: #c6303c;
     border-color: #1D3557;
     color: white;
     transition: background-color 0.3s, box-shadow 0.3s;
@@ -78,7 +78,7 @@ nav .navBar:hover {
 
 .btn-custom:hover,
 .btn-custom.active {
-    background-color: #ce2e3b;
+    background-color: #e63946;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: white;
 }
@@ -143,7 +143,7 @@ nav .navBar:hover {
 
 /* Team Member Links */
 .team-member a {
-    color: #457B9D;
+    color: #1D3557;
     text-decoration: none;
     margin-left: 10px;
 }
@@ -231,7 +231,7 @@ nav .navBar:hover {
         flex-direction: column;
         width: 100%;
         align-items: end;
-        
+
     }
 
     .navbar-links .d-flex a,
