@@ -188,7 +188,8 @@ function readCookie() {
         window.location.href = "main.html";
     }
     else {
-        //		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+        document.title = "Contacts - " + firstName + " " + lastName;
+        document.getElementById("title").innerHTML = "Welcome " + firstName + " " + lastName + "!";
     }
 }
 
