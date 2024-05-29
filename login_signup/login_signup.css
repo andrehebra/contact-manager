@@ -31,7 +31,7 @@ h1 {
     color: #457b9D;
 }
 
-#box_b {
+#login_b, #signup_b {
     font-size: 2.0vh;
 }
 
@@ -41,7 +41,7 @@ h1 {
 }
 
 .btn-custom {
-    background-color: #E63946;
+    background-color: #c6303c;
     /* Deep teal background */
     border-color: #1D3557;
     /* Slightly darker teal border */
@@ -51,7 +51,7 @@ h1 {
 
 .btn-custom:hover,
 .btn-custom.active {
-    background-color: #ce2e3b;
+    background-color: #e63946;
     /* Darker shade on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     /* Add box shadow on hover */
