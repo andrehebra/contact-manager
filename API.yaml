@@ -111,7 +111,57 @@ paths:
               error:
                 type: string
                 example: "Server Error"
-
+  /EditContacts.php:
+    post:
+      tags:
+        - Contacts
+      summary: Edits an existing contact
+      operationId: editContact
+      description: Edits a contact's information for the logged-in user
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: contactItem
+          description: Contact details to be edited
+          required: true
+          schema:
+            $ref: "#/definitions/Contact"
+      responses:
+        200:
+          description: Contact edited successfully
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: ""
+        400:
+          description: Bad request, such as invalid input
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Bad Request"
+        404:
+          description: Contact not found or does not belong to the user
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Contact not found or does not belong to the user."
+        500:
+          description: Server Error
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Server Error"
 definitions:
   Login:
     type: object
