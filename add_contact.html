@@ -28,22 +28,35 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav id="mainNavbar" class="navbar ">
+    <nav id="mainNavbar" class="navbar">
         <div class="container-fluid">
             <a href="main.html" class="Navi navBar navbar-brand">LOGO</a>
-            <div class="d-flex">
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="navbar-links">
                 <a href="contacts.html" class="Contact btn btn-custom navBar nav-item nav-link btn-lg">Contacts</a>
-                <a href="about_us.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">About Us</a>
+                <a href="add_contact.html" class="logSign btn btn-custom navBar nav-item nav-link btn-lg">Add
+                    Contacts</a>
+                <a href="#" class="logSign btn btn-custom navBar nav-item nav-link btn-lg"
+                    onclick="doLogout();">Logout</a>
             </div>
-            <a href="#" class="logSign btn btn-custom navBar nav-item nav-link btn-lg" onclick="doLogout();">Logout</a>
         </div>
     </nav>
 
+    <script>
+        const toggleButton = document.getElementsByClassName('toggle-button')[0];
+        const navbarLinks = document.getElementsByClassName('navbar-links')[0];
+
+        toggleButton.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active');
+        });
+    </script>
+
     <!-- contact feilds -->
     <main>
-
-
         <div class="container mt-5" id="contactForm">
             <div id="title">Add Contact</div>
             <form action="" id="C_add">
