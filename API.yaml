@@ -3,14 +3,15 @@ info:
   description: This is the API documentation for the CityFolk Contacts App
   version: 1.0.0
   title: CityFolk Contacts App
-  # put the contact info for your development or API team
   contact:
     email: Richard.Leinecker@ucf.edu
-
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-
+host: cityfolk.world # Specify the hostname here
+basePath: /LAMPAPI
+schemes:
+  - http
 paths:
   /Login.php:
     post:
@@ -162,6 +163,57 @@ paths:
               error:
                 type: string
                 example: "Server Error"
+  /DeleteContact.php:
+    post:
+      tags:
+        - Contacts
+      summary: Deletes an existing contact
+      operationId: deleteContact
+      description: Deletes a contact for the logged-in user
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: contactItem
+          description: Contact details
+          required: true
+          schema:
+            $ref: "#/definitions/DeleteContact"
+      responses:
+        200:
+          description: Contact deleted successfully
+          schema:
+            type: object
+            properties:
+              info:
+                type: string
+                example: "Contact deleted successfully"
+        400:
+          description: Bad request, such as invalid input
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Bad Request"
+        404:
+          description: Contact not found or does not belong to the user
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Contact not found or you don't have permission to delete this contact."
+        500:
+          description: Server Error
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Server Error"
 definitions:
   Login:
     type: object
@@ -219,8 +271,19 @@ definitions:
       userId:
         type: integer
         example: 1
-
-host: cityfolk.world
-basePath: /LAMPAPI
-schemes:
-  - http
+  DeleteContact:
+    type: object
+    required:
+      - userId
+      - firstName
+      - lastName
+    properties:
+      userId:
+        type: integer
+        example: 1
+      firstName:
+        type: string
+        example: "Jane"
+      lastName:
+        type: string
+        example: "Smith"
