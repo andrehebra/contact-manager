@@ -60,7 +60,7 @@ input[type="text"] {
 }
 
 .table-container {
-    max-height: 570px;
+    max-height: 548px;
     /* Adjust the height as needed */
     overflow-y: scroll;
     background-color: white;
@@ -160,6 +160,17 @@ input:focus {
     /* Add glow effect */
     outline: none;
     /* Remove default outline */
+}
+
+#welcomeMessage {
+    font-size: 40px;
+    width: 100%;
+    margin: 0% 0%;
+    text-align: center;
+    color: #1D3557;
+    margin-top: .5%;
+    margin-bottom: 1%;
+    background-color: #f1faee;
 }
 
 /* Navbar */
