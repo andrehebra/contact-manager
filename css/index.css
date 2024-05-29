@@ -1,7 +1,6 @@
 body {
     background-color: #f1faee;
     font-family: "Kanit", sans-serif;
-
 }
 
 nav {
@@ -13,7 +12,6 @@ nav .navBar {
     font-size: 2.3vh;
 }
 
-
 .btn-custom {
     background-color: #c6303c;
     /* Deep teal background */
@@ -21,6 +19,10 @@ nav .navBar {
     /* Slightly darker teal border */
     color: white;
     transition: background-color 0.3s, box-shadow 0.3s;
+    margin-left: auto;
+    /* Push the button to the right */
+    padding-right: 20px;
+    /* Add right padding */
 }
 
 .btn-custom:hover {
@@ -38,4 +40,33 @@ h1 {
 
 span {
     color: #457B9D;
+}
+
+.temp {
+    display: flex;
+    align-items: flex-start;
+    /* Align items to the top */
+    justify-content: center;
+    min-height: 90vh;
+    padding-top: 30vh;
+    /* text distance from top of page (adjust as needed) */
+}
+
+.navbar {
+    height: 70px;
+    /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    /* Vertically center the content */
+    padding: 0 20px;
+    /* Add padding to left and right */
+}
+
+.navbar-brand {
+    height: 100%;
+}
+
+.navbar-brand img {
+    height: 100%;
+    width: auto;
 }
