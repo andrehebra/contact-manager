@@ -52,16 +52,6 @@ span {
     /* text distance from top of page (adjust as needed) */
 }
 
-.navbar {
-    height: 70px;
-    /* Adjust as needed */
-    display: flex;
-    align-items: center;
-    /* Vertically center the content */
-    padding: 0 20px;
-    /* Add padding to left and right */
-}
-
 .navbar-brand {
     height: 100%;
 }
