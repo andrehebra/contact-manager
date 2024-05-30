@@ -30,7 +30,7 @@
             $stmt->bind_param("ssssi", $firstName, $lastName, $phone, $email, $userId);
             if($stmt->execute())
             {
-                returnWithError("Contact added successfully"); 
+                returnWithInfo("Contact added successfully"); 
             }
             else
             {
@@ -57,5 +57,11 @@
     {
         $retValue = '{"error":"' . $err . '"}';
         sendResultInfoAsJson($retValue);
+    }
+
+    function returnWithInfo( $info )
+    {
+        $retValue = '{"info":"' . $info . '"}';
+        sendResultInfoAsJson( $retValue );
     }
 ?>
