@@ -444,3 +444,47 @@ function loadContacts() {
         console.log(err.message);
     }
 }
+
+function delete_row(i) {
+    let rowId = "row" + i;
+    let firstName = document.getElementById("first_Name" + i).textContent;
+    let lastName = document.getElementById("last_Name" + i).textContent;
+    let email = document.getElementById("email" + i).textContent;
+    let phone = document.getElementById("phone" + i).textContent;
+
+    let tmp = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+        userId: userId
+    };
+
+    let jsonPayload = JSON.stringify(tmp);
+    let url = urlBase + '/DeleteContact.' + extension;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    try {
+        xhr.onreadystatechange = function () {
+            if (this.readyState != 4) {
+                return;
+            }
+
+            if (this.readyState == 4 && this.status == 200) {
+                let response = JSON.parse(xhr.responseText);
+                if (response.error) {
+                    console.log("Error: " + response.error);
+                } else {
+                    console.log("Contact Deleted Successfully!");
+                    document.getElementById(rowId).remove();
+                }
+            }
+        };
+        xhr.send(jsonPayload);
+    } catch (err){
+        console.log(err.message);
+    }
+}
