@@ -33,7 +33,7 @@
             // If no rows affected, it means the contact does not exist or does not belong to the user
             $stmt->close();
             $conn->close();
-            returnWithError("No contact found.");
+            returnWithError("No contact found or you don't have permission to delete this contact.");
         }
 
     }
