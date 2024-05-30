@@ -299,6 +299,8 @@ function searchContacts(event) {
                     console.log(jsonObject.error);
                     //return;
                 }
+                jsonObject.results.sort((a, b) => a.LastName.localeCompare(b.LastName));
+
                 let text = "<table border='1'>"
                 for (let i = 0; i < jsonObject.results.length; i++) {
                     id_array[i] = jsonObject.results[i].ID
@@ -353,6 +355,8 @@ function loadContacts() {
                     console.log(jsonObject.error);
                     //return;
                 }
+                jsonObject.results.sort((a, b) => a.LastName.localeCompare(b.LastName));
+
                 let text = "<table border='1'>"
                 for (let i = 0; i < jsonObject.results.length; i++) {
                     id_array[i] = jsonObject.results[i].ID
@@ -434,10 +438,10 @@ function edit_row(i) {
     let email = document.getElementById("email" + i).textContent;
     let phone = document.getElementById("phone" + i).textContent;
 
-    document.getElementById("first_Name" + i).innerHTML = "<input type='text' id='firstName_text" + i + "' value='" + firstName + "'>";
-    document.getElementById("last_Name" + i).innerHTML = "<input type='text' id='lastName_text" + i + "' value='" + lastName + "'>";
-    document.getElementById("email" + i).innerHTML = "<input type='text' id='email_text" + i + "' value='" + email + "'>";
-    document.getElementById("phone" + i).innerHTML = "<input type='text' id='phone_text" + i + "' value='" + phone + "'>";
+    document.getElementById("first_Name" + i).innerHTML = "<input type='text' id='firstName_text" + i + "' value='" + firstName + "' style='width: 100%;'>";
+    document.getElementById("last_Name" + i).innerHTML = "<input type='text' id='lastName_text" + i + "' value='" + lastName + "' style='width: 100%;'>";
+    document.getElementById("email" + i).innerHTML = "<input type='text' id='email_text" + i + "' value='" + email + "' style='width: 100%;'>";
+    document.getElementById("phone" + i).innerHTML = "<input type='text' id='phone_text" + i + "' value='" + phone + "' style='width: 100%;'>";
 }
 
 function save_row(i) {
