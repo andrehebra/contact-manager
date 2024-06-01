@@ -213,9 +213,11 @@ function addContact() {
 
     if (!firstName.trim()) {
         result.innerHTML = 'First name cannot be blank. ';
+        return;
     }
     if (!lastName.trim()) {
         result.innerHTML = 'Last name cannot be blank. ';
+        return;
     }
     if (!phoneRegex.test(phone)) {
         result.innerHTML = "Phone Number must be in the format ###-###-####.";
