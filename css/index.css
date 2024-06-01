@@ -45,7 +45,7 @@ span {
 .temp {
     display: flex;
     align-items: flex-start;
-    /* Align items to the top */
+    /* AligŒn items to the top */
     justify-content: center;
     min-height: 90vh;
     padding-top: 30vh;
