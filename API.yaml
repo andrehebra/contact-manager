@@ -8,10 +8,12 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-host: cityfolk.world # Specify the hostname here
+
+host: cityfolk.world
 basePath: /LAMPAPI
 schemes:
   - http
+
 paths:
   /Login.php:
     post:
@@ -177,7 +179,7 @@ paths:
       parameters:
         - in: body
           name: contactItem
-          description: Contact details
+          description: Contact details to be deleted
           required: true
           schema:
             $ref: "#/definitions/DeleteContact"
@@ -187,9 +189,9 @@ paths:
           schema:
             type: object
             properties:
-              info:
+              error:
                 type: string
-                example: "Contact deleted successfully"
+                example: ""
         400:
           description: Bad request, such as invalid input
           schema:
@@ -205,7 +207,65 @@ paths:
             properties:
               error:
                 type: string
-                example: "Contact not found or you don't have permission to delete this contact."
+                example: "Contact not found or does not belong to the user."
+        500:
+          description: Server Error
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Server Error"
+  /SearchContacts.php:
+    post:
+      tags:
+        - Contacts
+      summary: Searches for contacts
+      operationId: searchContacts
+      description: Searches for contacts by name, phone, or email for the logged-in user
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: searchItem
+          description: Search query
+          required: true
+          schema:
+            $ref: "#/definitions/SearchContact"
+      responses:
+        200:
+          description: Search completed successfully
+          schema:
+            type: object
+            properties:
+              results:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    ID:
+                      type: integer
+                    FirstName:
+                      type: string
+                    LastName:
+                      type: string
+                    Phone:
+                      type: string
+                    Email:
+                      type: string
+              error:
+                type: string
+                example: "Search Completed"
+        404:
+          description: No records found
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "No Records Found"
         500:
           description: Server Error
           schema:
@@ -287,3 +347,15 @@ definitions:
       lastName:
         type: string
         example: "Smith"
+  SearchContact:
+    type: object
+    required:
+      - search
+      - userId
+    properties:
+      search:
+        type: string
+        example: "Jane"
+      userId:
+        type: integer
+        example: 1
