@@ -22,7 +22,7 @@ PHP: PHP was used to write the server-side logic of the application. This includ
 ## Contributors
 
 The Contact Manager project was developed by a team of five contributors. 
-- [Hashim Alkhateeb] (https://www.linkedin.com/in/hashim-alkhateeb-41747828b/)
+- [Hashim Alkhateeb](https://www.linkedin.com/in/hashim-alkhateeb-41747828b/)
 - Brittany Clark
 - Andre Hebra
 - [Tran Pham](https://www.linkedin.com/in/tranpham9/)
