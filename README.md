@@ -1,6 +1,6 @@
 # contact-manager
 
-##Overview
+## Overview
 
 Contact Manager is a web-based application developed using the LAMP stack (Linux, Apache, MySQL, PHP). It allows users to store, manage, and organize their contacts efficiently.
 
