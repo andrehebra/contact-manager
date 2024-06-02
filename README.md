@@ -15,11 +15,11 @@ Responsive design for mobile and desktop use.
 ## How the Project Was Built
 
 The Contact Manager project was developed by a team of five contributors. 
-Hashim Alkhateeb 
-Brittany Clark
-Andre Hebra
-[Tran Pham](https://www.linkedin.com/in/tranpham9/)
-[Muzamil Shamsi](https://www.linkedin.com/in/muzamil-dev/)
+- Hashim Alkhateeb 
+- Brittany Clark
+- Andre Hebra
+- [Tran Pham](https://www.linkedin.com/in/tranpham9/)
+- [Muzamil Shamsi](https://www.linkedin.com/in/muzamil-dev/)
 
 
 ## Technologies Used
