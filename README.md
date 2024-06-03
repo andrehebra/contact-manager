@@ -2,14 +2,14 @@
 
 ## Overview
 
-Contact Manager is a web-based application developed using the LAMP stack (Linux, Apache, MySQL, PHP). It allows users to store, manage, and organize their contacts efficiently.
+City Folk Contact Manager is a web-based application developed using the LAMP stack (Linux, Apache, MySQL, PHP). The application allows users to store and manage their contacts.
 
 ## Features
 
-Add new contacts with name, phone number, email, and address.
+Add new contacts with name, phone number, and email address.
 Edit existing contacts.
 Delete contacts.
-Search and filter contacts.
+Search contacts.
 Responsive design for mobile and desktop use.
 
 ## Technologies Used
@@ -24,6 +24,6 @@ PHP: PHP was used to write the server-side logic of the application. This includ
 The Contact Manager project was developed by a team of five contributors. 
 - [Hashim Alkhateeb](https://www.linkedin.com/in/hashim-alkhateeb-41747828b/)
 - Brittany Clark
-- Andre Hebra
+- [Andre Hebra](https://www.linkedin.com/in/andre-hebra)
 - [Tran Pham](https://www.linkedin.com/in/tranpham9/)
 - [Muzamil Shamsi](https://www.linkedin.com/in/muzamil-dev/)
