@@ -60,3 +60,8 @@ span {
     height: 100%;
     width: auto;
 }
+
+.git:hover{
+    text-decoration: underline;
+    text-decoration-color: #457B9D;
+}
