@@ -6,11 +6,11 @@ City Folk Contact Manager is a web-based application developed using the LAMP st
 
 ## Features
 
-Add new contacts with name, phone number, and email address.
-Edit existing contacts.
-Delete contacts.
-Search contacts.
-Responsive design for mobile and desktop use.
+- Add new contacts with name, phone number, and email address.
+- Edit existing contacts.
+- Delete contacts.
+- Search contacts.
+- Responsive design for mobile and desktop use.
 
 ## Technologies Used
 - Linux: We set up our development environment on Linux servers, providing a robust and secure foundation for our application.
