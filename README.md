@@ -23,7 +23,7 @@ City Folk Contact Manager is a web-based application developed using the LAMP st
 
 The Contact Manager project was developed by a team of five contributors. 
 - [Hashim Alkhateeb](https://www.linkedin.com/in/hashim-alkhateeb-41747828b/)
-- Brittany Clark
+- [Brittany Clark](https://www.linkedin.com/in/brittanyclark1495/)
 - [Andre Hebra](https://www.linkedin.com/in/andre-hebra)
 - [Tran Pham](https://www.linkedin.com/in/tranpham9/)
 - [Muzamil Shamsi](https://www.linkedin.com/in/muzamil-dev/)
