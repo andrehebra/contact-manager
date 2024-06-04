@@ -270,20 +270,29 @@ function addContact() {
 
 }
 
+let contactsLoaded = 0; // Variable to keep track of contacts loaded
+let totalContacts = 0; // Variable to store the total number of contacts available
+let allContactsLoaded = false; // Flag to indicate if all contacts have been loaded
 
 function searchContacts(event) {
-    event.preventDefault(); // Prevent form submission and page reload
+    try {
+        event.preventDefault(); // Prevent form submission and page reload
+    } catch(e) {
+        //console.log(e);
+    }
+    
     console.log("searching contacts");
     //get search query
     let srch = document.getElementById("searchText").value;
     //get table element to add in
     let table = document.getElementById("contacttablebody");
 
-    table.innerHTML = "";
+    if (allContactsLoaded) {
+        console.log("All contacts loaded.");
+        return; // Exit the function if all contacts are already loaded
+    }
 
-    let contactList = "";
-
-    let tmp = { search: srch, userId: userId };
+    let tmp = { search: srch, userId: userId, contactsLoaded: contactsLoaded }; // Include contactsLoaded in the request
 
     let jsonPayload = JSON.stringify(tmp);
 
@@ -303,24 +312,32 @@ function searchContacts(event) {
                 }
                 jsonObject.results.sort((a, b) => a.LastName.localeCompare(b.LastName));
 
-                let text = "<table border='1'>"
-                for (let i = 0; i < jsonObject.results.length; i++) {
-                    id_array[i] = jsonObject.results[i].ID
-                    text += "<tr id='row" + i + "'>"
-                    text += "<td id='first_Name" + i + "'><span>" + jsonObject.results[i].FirstName + "</span></td>";
-                    text += "<td id='last_Name" + i + "'><span>" + jsonObject.results[i].LastName + "</span></td>";
-                    text += "<td id='email" + i + "'><span>" + jsonObject.results[i].Email + "</span></td>";
-                    text += "<td id='phone" + i + "'><span>" + jsonObject.results[i].Phone + "</span></td>";
-                    text += "<td>" +
-                        "<button type='button' id='edit_button" + i + "' class='w3-button w3-circle w3-lime' onclick='edit_row(" + i + ")' aria-label='Edit Row " + i + "'>" + '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">  <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/></svg>' + "</button>" +
-                        "<button type='button' id='save_button" + i + "' value='Save' class='w3-button w3-circle w3-lime' onclick='save_row(" + i + ")' style='display: none' aria-label='Save Row " + i + "'>" + '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/><path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/></svg>' + "<span class='glyphicon glyphicon-saved'></span>" + "</button>" +
-                        "<button type='button' onclick='delete_row(" + i + ")' class='w3-button w3-circle w3-amber' aria-label='Delete Row " + i + "'>" + '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16"><path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/></svg>' + "</button>" + "</td>";
-                    text += "<tr/>"
+                totalContacts = jsonObject.totalResults; // Update totalContacts
+                console.log("total contacts count: " + totalContacts);
+                console.log("contacts to load: " + contactsLoaded);
+                
+                if (contactsLoaded >= totalContacts) {
+                    allContactsLoaded = true; // Set flag to indicate all contacts are loaded
+                    console.log("All contacts loaded.");
+                    return;
                 }
-                text += "</table>"
-                document.getElementById("contacttablebody").innerHTML = text;
-                console.log("text: ");
-                console.log(text);
+                let text = ""; // Initialize an empty string to build the new HTML
+                let contactsToLoad = Math.min(jsonObject.results.length, totalContacts - contactsLoaded);
+                for (let i = 0; i < contactsToLoad; i++) {
+                    id_array[contactsLoaded + i] = jsonObject.results[i].ID
+                    text += "<tr id='row" + (contactsLoaded + i) + "'>";
+                    text += "<td id='first_Name" + (contactsLoaded + i) + "'><span>" + jsonObject.results[i].FirstName + "</span></td>";
+                    text += "<td id='last_Name" + (contactsLoaded + i) + "'><span>" + jsonObject.results[i].LastName + "</span></td>";
+                    text += "<td id='email" + (contactsLoaded + i) + "'><span>" + jsonObject.results[i].Email + "</span></td>";
+                    text += "<td id='phone" + (contactsLoaded + i) + "'><span>" + jsonObject.results[i].Phone + "</span></td>";
+                    text += "<td>" + "<button type='button' id='edit_button" + i + "' class='w3-button w3-circle w3-lime' onclick='edit_row(" + i + ")' aria-label='Edit Row " + i + "'>" + '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">  <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/></svg>' + "</button>" +
+                    "<button type='button' id='save_button" + i + "' value='Save' class='w3-button w3-circle w3-lime' onclick='save_row(" + i + ")' style='display: none' aria-label='Save Row " + i + "'>" + '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/><path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/></svg>' + "<span class='glyphicon glyphicon-saved'></span>" + "</button>" +
+                    "<button type='button' onclick='delete_row(" + i + ")' class='w3-button w3-circle w3-amber' aria-label='Delete Row " + i + "'>" + '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16"><path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/></svg>' + "</button>" + "</td>";
+                    text += "<tr/>";
+                }
+                table.innerHTML += text; // Append the new HTML to the existing table
+                contactsLoaded += contactsToLoad; // Update contactsLoaded
+                console.log(contactsLoaded);
             }
         };
         xhr.send(jsonPayload);
@@ -328,9 +345,10 @@ function searchContacts(event) {
     catch (err) {
         document.getElementById("colorSearchResult").innerHTML = err.message;
     }
-
-    console.log(contactList);
 }
+
+
+
 
 function loadContacts() {
     console.log("load contacts function");
@@ -338,7 +356,9 @@ function loadContacts() {
     let tmp = {
         search: "",
         userId: userId,
-    }
+        offset: contactsLoaded, // Offset for incremental loading
+        limit: contactsPerLoad // Limit for incremental loading
+    };
 
     let jsonPayload = JSON.stringify(tmp);
 
@@ -355,28 +375,44 @@ function loadContacts() {
                 console.log(jsonObject);
                 if (jsonObject.error) {
                     console.log(jsonObject.error);
-                    //return;
+                    return;
                 }
                 jsonObject.results.sort((a, b) => a.LastName.localeCompare(b.LastName));
 
-                let text = "<table border='1'>"
+                let contactTableBody = document.getElementById("contacttablebody");
                 for (let i = 0; i < jsonObject.results.length; i++) {
-                    id_array[i] = jsonObject.results[i].ID
-                    text += "<tr id='row" + i + "'>"
-                    text += "<td id='first_Name" + i + "'><span>" + jsonObject.results[i].FirstName + "</span></td>";
-                    text += "<td id='last_Name" + i + "'><span>" + jsonObject.results[i].LastName + "</span></td>";
-                    text += "<td id='email" + i + "'><span>" + jsonObject.results[i].Email + "</span></td>";
-                    text += "<td id='phone" + i + "'><span>" + jsonObject.results[i].Phone + "</span></td>";
-                    text += "<td>" +
-                        "<button type='button' id='edit_button" + i + "' class='w3-button w3-circle w3-lime' onclick='edit_row(" + i + ")' aria-label='Edit Row " + i + "'>" + '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">  <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/></svg>' + "</button>" +
-                        "<button type='button' id='save_button" + i + "' value='Save' class='w3-button w3-circle w3-lime' onclick='save_row(" + i + ")' style='display: none' aria-label='Save Row " + i + "'>" + '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/><path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/></svg>' + "<span class='glyphicon glyphicon-saved'></span>" + "</button>" +
-                        "<button type='button' onclick='delete_row(" + i + ")' class='w3-button w3-circle w3-amber' aria-label='Delete Row " + i + "'>" + '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16"><path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/></svg>' + "</button>" + "</td>";
-                    text += "<tr/>"
+                    id_array[contactsLoaded + i] = jsonObject.results[i].ID;
+                    let row = document.createElement('tr');
+                    row.id = 'row' + (contactsLoaded + i);
+                    row.innerHTML = `
+                        <td id='first_Name${contactsLoaded + i}'><span>${jsonObject.results[i].FirstName}</span></td>
+                        <td id='last_Name${contactsLoaded + i}'><span>${jsonObject.results[i].LastName}</span></td>
+                        <td id='email${contactsLoaded + i}'><span>${jsonObject.results[i].Email}</span></td>
+                        <td id='phone${contactsLoaded + i}'><span>${jsonObject.results[i].Phone}</span></td>
+                        <td>
+                            <button type='button' id='edit_button${contactsLoaded + i}' class='w3-button w3-circle w3-lime' onclick='edit_row(${contactsLoaded + i})' aria-label='Edit Row ${contactsLoaded + i}'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+                                </svg>
+                            </button>
+                            <button type='button' id='save_button${contactsLoaded + i}' value='Save' class='w3-button w3-circle w3-lime' onclick='save_row(${contactsLoaded + i})' style='display: none' aria-label='Save Row ${contactsLoaded + i}'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                    <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+                                </svg>
+                                <span class='glyphicon glyphicon-saved'></span>
+                            </button>
+                            <button type='button' onclick='delete_row(${contactsLoaded + i})' class='w3-button w3-circle w3-amber' aria-label='Delete Row ${contactsLoaded + i}'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+                                </svg>
+                            </button>
+                        </td>
+                    `;
+                    contactTableBody.appendChild(row);
                 }
-                text += "</table>"
-                document.getElementById("contacttablebody").innerHTML = text;
-                console.log("text: ");
-                console.log(text);
+
+                contactsLoaded += jsonObject.results.length;
             }
         };
         xhr.send(jsonPayload);
@@ -513,3 +549,4 @@ function save_row(i) {
         console.log(err.message);
     }
 }
+
